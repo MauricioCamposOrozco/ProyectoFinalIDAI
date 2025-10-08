@@ -5,60 +5,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clover Multicaps — Gorras</title>
   <style>
-    /* Estilos sencillos */
-   <style>
-    /* CSS minimal */
-    body { margin:0; background:#000; color:#fff; font-family: Arial, Helvetica, sans-serif; padding:16px; }
-    .container { max-width:900px; margin:0 auto; }
-    h1 { font-size:28px; margin:0 0 8px; }
-    .lead { color:#ddd; margin:0 0 14px; }
-    .section { background:rgba(255,255,255,0.04); padding:10px; border-radius:6px; margin-bottom:12px; }
-    .media { display:flex; gap:10px; flex-wrap:wrap; }
-    .media img { width:100%; max-width:260px; height:160px; object-fit:cover; border-radius:6px; }
-    iframe { width:100%; height:200px; border:0; border-radius:6px; }
-    footer { color:#aaa; font-size:13px; margin-top:10px; }
-    @media (min-width:760px) { .media img { height:180px; } }
-  </style>
-  </style>
+
+     * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+.productos h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.producto-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 220px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.precio {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+footer {
+  background-color: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footer {
+  background-color: #000;
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+  font-size: 14px;
+}
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-info ul li {
+  margin-bottom: 10px;
+}
+
+.footer-info a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.footer-redes h4 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-redes .iconos a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.footer-redes .iconos img {
+  width: 24px;
+  height: 24px;
+}
+
+/* WhatsApp botón flotante */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.whatsapp span {
+  font-weight: bold;
+}
+
+
+</style>
+ 
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Clover Multicaps</h1>
-      <p class="strong">Gorras urbanas · Drops exclusivos</p>
-    </header>
+  <header>
+    <h1>Clover Multicaps</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Gorras</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="section" aria-label="Ubicación completa">
-      <strong>Ubicación</strong>
-      <p style="margin:6px 0 0 0">Av. Puerta de Hierro 526, 64349 Monterrey, N.L.</p>
-      <p style="margin:6px 0 0 0;color:#300707">Horario: </p>
-    </section>
-
-    <section class="section" aria-label="Galería y video">
-      <strong>Galería</strong>
-    <br>
-    <br>
-          <strong>Video promocional</strong>
-       
+  <main>
+    <section class="productos">
+      <h2>Conoce nuestras gorras</h2>
+      <div class="producto-lista">
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x200.png?text=Gorra+1" alt="Gorra 1">
+          <h3>Gorra Negra Clásica</h3>
+          <p>Diseño simple y elegante.</p>
         </div>
+
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x200.png?text=Gorra+2" alt="Gorra 2">
+          <h3>Gorra Urbana Blanca</h3>
+          <p>Estilo moderno para el día a día.</p>
+        </div>
+
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x200.png?text=Gorra+3" alt="Gorra 3">
+          <h3>Gorra Deportiva Roja</h3>
+          <p>Ideal para actividades al aire libre.</p>
+        </div>
+
+        <footer class="footer">
+  <div class="footer-contenedor">
+    <div class="footer-info">
+      <ul>
+        <li><a href="#">Términos y Condiciones</a></li>
+        <li><a href="#">Preguntas Frecuentes</a></li>
+        <li><a href="#">Políticas de Devolución</a></li>
+        <li><a href="#">Aviso de Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-redes">
+      <h4>SÍGUENOS</h4>
+      <div class="iconos">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/1828/1828911.png" alt="Blog"></a>
       </div>
-      <small style="color:#350303;display:block;margin-top:8px">  </small>
+    </div>
+  </div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/1234567890" class="whatsapp" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/48/733/733585.png" alt="WhatsApp">
+    <span>WHATSAPP</span>
+  </a>
+</footer>
+
+        
+        <!-- Duplicar este bloque para más gorras -->
+      </div>
     </section>
+  </main>
 
-    <section class="section brands">
-      <strong>Marcas</strong>
-      <div class="brand" style="margin-top:8px">
-        <h3 style="margin:0 0 4px 0">Clover Garments</h3>
-        <p style="margin:0;color:#420606;font-style:italic"></p>
-      </div>
-
-      <div class="brand">
-        <h3 style="margin:0 0 4px 0">Clover Multicaps</h3>
-        <p style="margin:0;color:#300505;font-style:italic">Colecciones propias y colaboraciones.</p>
-      </div>
-    </section>
-
-    <footer>
-      <div>Contacto:  · WhatsApp: 
-     
-    </footer>
+  <footer>
+  </footer>
