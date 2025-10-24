@@ -1,184 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clover Multicaps - Gorras</title>
-  <style>
-
-     * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background-color: #f8f8f8;
-  color: #333;
-}
-
-header {
-  background-color: #1e1e1e;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 20px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-main {
-  padding: 40px 20px;
-}
-
-.productos h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
-}
-
-.producto-lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-.producto {
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 15px;
-  width: 220px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.producto:hover {
-  transform: translateY(-5px);
-}
-
-.producto img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.precio {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #2e7d32;
-}
-
-footer {
-  background-color: #1e1e1e;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-.footer {
-  background-color: #000;
-  color: white;
-  padding: 40px 20px;
-  position: relative;
-  font-size: 14px;
-}
-
-.footer-contenedor {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.footer-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-info ul li {
-  margin-bottom: 10px;
-}
-
-.footer-info a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-info a:hover {
-  text-decoration: underline;
-}
-
-.footer-redes h4 {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-redes .iconos a {
-  margin-right: 10px;
-  display: inline-block;
-}
-
-.footer-redes .iconos img {
-  width: 24px;
-  height: 24px;
-}
-
-/* WhatsApp botón flotante */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: transform 0.2s ease;
-}
-
-.whatsapp:hover {
-  transform: scale(1.05);
-}
-
-.whatsapp img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.whatsapp span {
-  font-weight: bold;
-}
-</style>
-<body>
-  <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clover Multicaps — Gorras</title>
   <style>
     * {
       box-sizing: border-box;
@@ -217,6 +42,12 @@ footer {
       padding: 40px 20px;
     }
 
+    .presentacion {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
     .productos h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -249,13 +80,6 @@ footer {
       width: 100%;
       height: auto;
       margin-bottom: 10px;
-    }
-
-    .precio {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #2e7d32;
     }
 
     footer {
@@ -314,7 +138,7 @@ footer {
       height: 24px;
     }
 
-    /* WhatsApp botón flotante */
+    /* Botón flotante de WhatsApp */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -350,6 +174,9 @@ footer {
 
   <header>
     <h1>Clover Multicaps</h1>
+    <header>
+      <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
+</header>
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
@@ -360,46 +187,52 @@ footer {
   </header>
 
   <main>
+    <section class="presentacion">
+      <h2>Bienvenido a Clover Multicaps</h2>
+      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo. Ofrecemos diseños cómodos, modernos y con personalidad para acompañarte en tu día a día.</p>
+    </section>
+
     <section class="productos">
-      <h2></h2>
+      <h2>Nuestras gorras más populares</h2>
       <div class="producto-lista">
 
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+1" alt="Gorra 1">
-          <h3></h3>
-          <p></p>
+          <h3>Gorra Negra Clásica</h3>
+          <p>Un diseño básico y elegante para cualquier ocasión.</p>
         </div>
 
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+2" alt="Gorra 2">
-          <h3></h3>
-          <p></p>
+          <h3>Gorra Blanca Deportiva</h3>
+          <p>Perfecta para combinar con un look casual o deportivo.</p>
         </div>
 
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+3" alt="Gorra 3">
-          <h3></h3>
-          <p></p>
+          <h3>Gorra Verde Militar</h3>
+          <p>Un modelo moderno con estilo urbano.</p>
         </div>
 
-      <!-- Nuevas gorras -->
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+4" alt="Gorra 4">
-          <h3></h3>
-          <p></p>
+          <h3>Gorra Azul Marino</h3>
+          <p>Una de las favoritas por su tono versátil y diseño clásico.</p>
         </div>
 
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+5" alt="Gorra 5">
-          <h3></h3>
-          <p></p>
+          <h3>Gorra Roja Urbana</h3>
+           <p>Estilo llamativo para quienes buscan destacar con confianza.</p>
         </div>
 
         <div class="producto">
           <img src="https://via.placeholder.com/200x200.png?text=Gorra+6" alt="Gorra 6">
-          <h3></h3>
-          <p></p>
-       </div>
+          <h3>Gorra Gris Minimalista</h3>
+          <p>Diseño limpio y moderno que combina con todo tipo de outfits.</p>
+        </div>
+
+
       </div>
     </section>
   </main>
@@ -425,7 +258,7 @@ footer {
   </footer>
 
   <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/1234567890" class="whatsapp" target="_blank">
+  <a href="#" class="whatsapp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
     <span>WHATSAPP</span>
   </a>
