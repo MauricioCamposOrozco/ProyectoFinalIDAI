@@ -165,9 +165,10 @@ main {
 .footer-info a:hover {
   color: #00c853;
 }
-
-footer {
-  backgroundColor:#0d0d0d;
+.footer p {
+  margin-top: 8px;
+  color: #bbb;
+  font-size: 14px;
 }
 
 /* WHATSAPP FLOATING BUTTON */
