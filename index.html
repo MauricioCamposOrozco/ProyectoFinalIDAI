@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clover Multicaps - Gorras</title>
   <link rel="stylesheet" href="style-index.css">
-  <style>
- 
-  </style>
 </head>
+
 <body>
 
   <header>
@@ -16,6 +14,7 @@
     <header>
       <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
     </header>
+
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -28,80 +27,97 @@
   <main>
     <section class="presentacion">
       <h2>Bienvenido a Clover Multicaps</h2>
-      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo. Ofrecemos diseños cómodos, modernos y con personalidad para acompañarte en tu día a día.</p>
+      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo.</p>
     </section>
 
     <section class="productos">
       <h2>Nuestras gorras más populares</h2>
+
       <div class="producto-lista">
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra 1">
           <h3>Gorra alo Negra</h3>
           <p>Un diseño básico y elegante para cualquier ocasión.</p>
-          <span style="display:none;">$25.99</span>
+          <span style="display:none;">$3,300.00</span>
         </div>
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra 2">
           <h3>Gorra dandy "mago"</h3>
-          <p>Buen diseño y materiales de calidad</p>
-          <span style="display:none;">$35.99</span>
+          <p>Buen diseño y materiales de calidad.</p>
+          <span style="display:none;">$1,499.00</span>
         </div>
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra 3">
           <h3>Gorra dandy "sad boyz"</h3>
-          <p>Un modelo moderno con estilo urbano</p>
-          <span style="display:none;">$32.99</span>
+          <p>Estilo moderno urbano.</p>
+          <span style="display:none;">$1,499.00</span>
         </div>
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra 4">
           <h3>Gorra dandy del Canelo</h3>
-          <p>Colaboración con el boxeador mexicano "el canelo" diseño y materiales impecables</p>
-          <span style="display:none;">$45.99</span>
+          <p>Colaboración con el boxeador mexicano.</p>
+          <span style="display:none;">$1,499.00</span>
         </div>
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra 5">
           <h3>Gorra de Natanael Cano</h3>
-          <p>Gorra del barbas hats inspirada en el famoso cantante mexicano Natanael Cano</p>
-          <span style="display:none;">$39.99</span>
+          <p>Inspirada en el famoso cantante.</p>
+          <span style="display:none;">$1,699.00</span>
         </div>
 
         <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra 6">
           <h3>Gorra Chrome</h3>
-          <p>Gorra chrome del barbas hats, diseño impecable y llamativo, siempre destaca</p>
-          <span style="display:none;">$42.99</span>
+          <p>Diseño llamativo y de alta calidad.</p>
+          <span style="display:none;">$3,000.00</span>
         </div>
 
       </div>
     </section>
   </main>
 
-  <!-- Modal -->
+  <!-- MODAL -->
   <div id="modalProducto" class="modal">
     <div class="modal-contenido">
       <span class="cerrar" onclick="cerrarModal()">&times;</span>
+
       <div class="modal-body">
         <img id="modalImagen" src="" alt="Producto">
+
         <div class="modal-info">
           <h2 id="modalNombre"></h2>
           <p id="modalDescripcion"></p>
           <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+
           <div class="modal-acciones">
             <input type="number" id="cantidad" value="1" min="1">
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
+  <!-- RECIBO FLOTANTE -->
+  <div id="recibo" class="recibo oculto">
+    <h3>Recibo</h3>
+    <p><strong>Producto:</strong> <span id="rProducto"></span></p>
+    <p><strong>Cantidad:</strong> <span id="rCantidad"></span></p>
+    <p><strong>Total:</strong> <span id="rTotal"></span></p>
+
+    <input type="tel" id="telefono" placeholder="Número telefónico">
+    <button onclick="enviarRecibo()">Enviar recibo</button>
+  </div>
+
   <footer class="footer">
     <div class="footer-contenedor">
+
       <div class="footer-info">
         <ul>
           <li><a href="#">Preguntas Frecuentes</a></li>
@@ -113,17 +129,102 @@
         <h4>SÍGUENOS</h4>
         <div class="iconos">
           <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" alt="Facebook" width="30" height="30">
+            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30">
           </a>
+
           <a href="https://www.instagram.com/clover_multicaps4/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" width="30" height="30">
+            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30">
           </a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" alt="TikTok"></a>
+
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30"></a>
         </div>
       </div>
+
     </div>
   </footer>
 
+
+<script>
+  // poner función al dar clic en cada producto
+  var prods = document.getElementsByClassName('producto');
+  for (var i = 0; i < prods.length; i++) {
+    prods[i].onclick = function () { abrirModal(this); };
+  }
+
+  // abrir modal y mostrar datos del producto
+  function abrirModal(elem) {
+    var imgEl = elem.getElementsByTagName('img')[0];
+    var h3 = elem.getElementsByTagName('h3')[0];
+    var p = elem.getElementsByTagName('p')[0];
+    var sp = elem.getElementsByTagName('span')[0];
+
+    var img = imgEl ? imgEl.src : '';
+    var nombre = h3 ? h3.textContent : '';
+    var desc = p ? p.textContent : '';
+    var precioTxt = sp ? sp.textContent : '';
+
+    document.getElementById('modalImagen').src = img;
+    document.getElementById('modalNombre').textContent = nombre;
+    document.getElementById('modalDescripcion').textContent = desc;
+    document.getElementById('modalPrecio').textContent = precioTxt;
+
+    document.getElementById('cantidad').value = 1;
+    document.getElementById('modalProducto').classList.add('activo');
+  }
+
+  // cerrar modal
+  function cerrarModal() {
+    document.getElementById('modalProducto').classList.remove('activo');
+  }
+
+  // generar recibo flotante
+  function agregarAlCarrito() {
+    var nombre = document.getElementById('modalNombre').textContent;
+    var cantidad = parseInt(document.getElementById('cantidad').value, 10) || 1;
+    var precioTxt = document.getElementById('modalPrecio').textContent || '';
+
+    // limpiar precio
+    var num = precioTxt.replace(/[^0-9.]/g, '');
+    var precio = parseFloat(num) || 0;
+    var total = precio * cantidad;
+
+    document.getElementById('rProducto').textContent = nombre;
+    document.getElementById('rCantidad').textContent = cantidad;
+    document.getElementById('rTotal').textContent = '$' + total.toFixed(2);
+
+    document.getElementById('recibo').classList.remove('oculto');
+
+    cerrarModal();
+  }
+
+  // enviar recibo por WhatsApp
+  function enviarRecibo() {
+    var tel = document.getElementById('telefono').value.replace(/\D/g, '');
+    if (!tel || tel.length < 10) {
+      alert('Ingresa un número telefónico válido.');
+      return;
+    }
+
+    var prod = document.getElementById('rProducto').textContent;
+    var cant = document.getElementById('rCantidad').textContent;
+    var total = document.getElementById('rTotal').textContent;
+
+    var msg = ' Recibo Clover Multicaps' +
+              'Producto: ' + encodeURIComponent(prod) + '%0A' +
+              'Cantidad: ' + encodeURIComponent(cant) + '%0A' +
+              'Total: ' + encodeURIComponent(total) + '%0A%0A' +
+              '¡Gracias por tu compra!  ';
+
+    window.open('https://wa.me/52' + tel + '?text=' + msg, '_blank');
+  }
+
+  // cerrar modal clic fuera
+  window.onclick = function (e) {
+    if (e.target && e.target.id === 'modalProducto') {
+      cerrarModal();
+    }
+  };
+</script>
 
 
 </body>
