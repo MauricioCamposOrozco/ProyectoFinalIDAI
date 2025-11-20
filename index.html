@@ -124,43 +124,7 @@
     </div>
   </footer>
 
-  <script>
-    function abrirModal(elemento) {
-      const imagen = elemento.querySelector('img').src;
-      const nombre = elemento.querySelector('h3').textContent;
-      const descripcion = elemento.querySelector('p').textContent;
-      const precio = elemento.querySelector('span').textContent;
 
-      document.getElementById('modalImagen').src = imagen;
-      document.getElementById('modalNombre').textContent = nombre;
-      document.getElementById('modalDescripcion').textContent = descripcion;
-      document.getElementById('modalPrecio').textContent = precio;
-      document.getElementById('cantidad').value = 1;
-
-      document.getElementById('modalProducto').classList.add('activo');
-    }
-
-    function cerrarModal() {
-      document.getElementById('modalProducto').classList.remove('activo');
-    }
-
-    function agregarAlCarrito() {
-      const nombre = document.getElementById('modalNombre').textContent;
-      const cantidad = document.getElementById('cantidad').value;
-      const precio = document.getElementById('modalPrecio').textContent;
-
-      alert('✓ ' + cantidad + 'x ' + nombre + ' agregado al carrito\nPrecio: ' + precio);
-      cerrarModal();
-    }
-
-    // Cerrar modal al hacer click fuera
-    window.onclick = function(event) {
-      const modal = document.getElementById('modalProducto');
-      if (event.target == modal) {
-        cerrarModal();
-      }
-    }
-  </script>
 
 </body>
 </html>
