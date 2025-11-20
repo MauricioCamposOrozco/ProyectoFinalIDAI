@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clover Multicaps - Gorras</title>
   <link rel="stylesheet" href="style-index.css">
-  <style>
- 
-  </style>
 </head>
+
 <body>
 
   <header>
@@ -16,6 +14,7 @@
     <header>
       <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
     </header>
+
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -28,11 +27,12 @@
   <main>
     <section class="presentacion">
       <h2>Bienvenido a Clover Multicaps</h2>
-      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo. Ofrecemos diseños cómodos, modernos y con personalidad para acompañarte en tu día a día.</p>
+      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo.</p>
     </section>
 
     <section class="productos">
       <h2>Nuestras gorras más populares</h2>
+
       <div class="producto-lista">
 
         <div class="producto" onclick="abrirModal(this)">
@@ -80,23 +80,39 @@
   <div id="modalProducto" class="modal">
     <div class="modal-contenido">
       <span class="cerrar" onclick="cerrarModal()">&times;</span>
+
       <div class="modal-body">
         <img id="modalImagen" src="" alt="Producto">
+
         <div class="modal-info">
           <h2 id="modalNombre"></h2>
           <p id="modalDescripcion"></p>
           <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+
           <div class="modal-acciones">
             <input type="number" id="cantidad" value="1" min="1">
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
+  <!-- RECIBO FLOTANTE -->
+  <div id="recibo" class="recibo oculto">
+    <h3>Recibo</h3>
+    <p><strong>Producto:</strong> <span id="rProducto"></span></p>
+    <p><strong>Cantidad:</strong> <span id="rCantidad"></span></p>
+    <p><strong>Total:</strong> <span id="rTotal"></span></p>
+
+    <input type="tel" id="telefono" placeholder="Número telefónico">
+    <button onclick="enviarRecibo()">Enviar recibo</button>
+  </div>
+
   <footer class="footer">
     <div class="footer-contenedor">
+
       <div class="footer-info">
         <ul>
           <li><a href="#">Preguntas Frecuentes</a></li>
@@ -108,12 +124,14 @@
         <h4>SÍGUENOS</h4>
         <div class="iconos">
           <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" alt="Facebook" width="30" height="30">
+            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30">
           </a>
+
           <a href="https://www.instagram.com/clover_multicaps4/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" width="30" height="30">
+            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30">
           </a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" alt="TikTok"></a>
+
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30"></a>
         </div>
       </div>
     
