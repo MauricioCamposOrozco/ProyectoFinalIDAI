@@ -135,6 +135,107 @@
           <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30"></a>
         </div>
       </div>
-    
+    <script>
+  // asigna onclick a cada .producto
+  var prods = document.getElementsByClassName('producto');
+  for (var i = 0; i < prods.length; i++) {
+    prods[i].onclick = function () { abrirModal(this); };
+  }
+
+  // abre modal y copia datos
+  function abrirModal(elem) {
+    var imgEl = elem.getElementsByTagName('img')[0];
+    var h3 = elem.getElementsByTagName('h3')[0];
+    var p = elem.getElementsByTagName('p')[0];
+    var sp = elem.getElementsByTagName('span')[0];
+
+    var img = imgEl ? imgEl.src : '';
+    var nombre = h3 ? h3.innerText : '';
+    var desc = p ? p.innerText : '';
+    var precioTxt = sp ? sp.innerText : '';
+
+    document.getElementById('modalImagen').src = img;
+    document.getElementById('modalNombre').innerText = nombre;
+    document.getElementById('modalDescripcion').innerText = desc;
+    document.getElementById('modalPrecio').innerText = precioTxt;
+
+    document.getElementById('cantidad').value = 1;
+
+    // muestro el modal con estilo (simple)
+    var modal = document.getElementById('modalProducto');
+    modal.style.display = 'flex';
+  }
+
+  // cierra modal
+  function cerrarModal() {
+    var modal = document.getElementById('modalProducto');
+    modal.style.display = 'none';
+  }
+
+  // genera recibo sencillo
+  function agregarAlCarrito() {
+    var nombre = document.getElementById('modalNombre').innerText;
+    var cantidad = parseInt(document.getElementById('cantidad').value, 10);
+    if (!cantidad || cantidad < 1) cantidad = 1;
+
+    var precioTxt = document.getElementById('modalPrecio').innerText || '';
+    // quitar $ y comas (manera simple)
+    if (precioTxt.charAt(0) === '$') {
+      precioTxt = precioTxt.slice(1);
+    }
+    precioTxt = precioTxt.split(',').join(''); // quita comas de miles
+    var precio = Number(precioTxt);
+    if (isNaN(precio)) precio = 0;
+
+    var total = precio * cantidad;
+
+    document.getElementById('rProducto').innerText = nombre;
+    document.getElementById('rCantidad').innerText = cantidad;
+    document.getElementById('rTotal').innerText = '$' + total.toFixed(2);
+
+    // muestro recibo (simple)
+    document.getElementById('recibo').style.display = 'block';
+
+    cerrarModal();
+  }
+
+  // enviar por WhatsApp (quita caracteres no numéricos manualmente)
+  function enviarRecibo() {
+    var raw = document.getElementById('telefono').value || '';
+    var tel = '';
+    for (var i = 0; i < raw.length; i++) {
+      var c = raw.charAt(i);
+      if (c >= '0' && c <= '9') tel += c;
+    }
+    if (tel.length < 10) {
+      alert('Ingresa un número telefónico válido.');
+      return;
+    }
+
+    var prod = document.getElementById('rProducto').innerText;
+    var cant = document.getElementById('rCantidad').innerText;
+    var total = document.getElementById('rTotal').innerText;
+
+    var mensaje = 'Recibo Clover Multicaps%0A' +
+                  'Producto: ' + prod + '%0A' +
+                  'Cantidad: ' + cant + '%0A' +
+                  'Total: ' + total + '%0A%0A' +
+                  '¡Gracias por tu compra!';
+
+    // abre WhatsApp (prefijo 52 para México; si otro país, cambia)
+    window.open('https://wa.me/52' + tel + '?text=' + mensaje, '_blank');
+  }
+
+  // cerrar modal si se hace clic fuera (simple)
+  window.onclick = function (e) {
+    var modal = document.getElementById('modalProducto');
+    if (e.target === modal) {
+      cerrarModal();
+    }
+  };
+</script>
+
+
+
 </body>
 </html>
