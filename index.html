@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clover Multicaps - Gorras</title>
- <link rel="stylesheet" href="style-index.css">
+  <link rel="stylesheet" href="style-index.css">
+  <style>
+ 
+  </style>
 </head>
 <body>
 
@@ -12,7 +15,7 @@
     <h1>Clover Multicaps</h1>
     <header>
       <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
-</header>
+    </header>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -32,48 +35,70 @@
       <h2>Nuestras gorras más populares</h2>
       <div class="producto-lista">
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra 1">
-          <h3>Gorra alo Negra </h3>
+          <h3>Gorra alo Negra</h3>
           <p>Un diseño básico y elegante para cualquier ocasión.</p>
+          <span style="display:none;">$25.99</span>
         </div>
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra 2">
           <h3>Gorra dandy "mago"</h3>
           <p>Buen diseño y materiales de calidad</p>
+          <span style="display:none;">$35.99</span>
         </div>
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra 3">
           <h3>Gorra dandy "sad boyz"</h3>
           <p>Un modelo moderno con estilo urbano</p>
+          <span style="display:none;">$32.99</span>
         </div>
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra 4">
           <h3>Gorra dandy del Canelo</h3>
-          <p>Colaboración con el boxeador mexicano "el canelo"
-            diseño y materiales impecables
-          </p>
+          <p>Colaboración con el boxeador mexicano "el canelo" diseño y materiales impecables</p>
+          <span style="display:none;">$45.99</span>
         </div>
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra 5">
           <h3>Gorra de Natanael Cano</h3>
-           <p>Gorra del barbas hats inspirada en el famoso cantante mexicano Natanael Cano</p>
+          <p>Gorra del barbas hats inspirada en el famoso cantante mexicano Natanael Cano</p>
+          <span style="display:none;">$39.99</span>
         </div>
 
-        <div class="producto">
+        <div class="producto" onclick="abrirModal(this)">
           <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra 6">
-          <h3>Gorra Chrome </h3>
+          <h3>Gorra Chrome</h3>
           <p>Gorra chrome del barbas hats, diseño impecable y llamativo, siempre destaca</p>
+          <span style="display:none;">$42.99</span>
         </div>
-
 
       </div>
     </section>
   </main>
+
+  <!-- Modal -->
+  <div id="modalProducto" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <div class="modal-body">
+        <img id="modalImagen" src="" alt="Producto">
+        <div class="modal-info">
+          <h2 id="modalNombre"></h2>
+          <p id="modalDescripcion"></p>
+          <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+          <div class="modal-acciones">
+            <input type="number" id="cantidad" value="1" min="1">
+            <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-contenedor">
@@ -87,20 +112,55 @@
       <div class="footer-redes">
         <h4>SÍGUENOS</h4>
         <div class="iconos">
-              <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank">
+          <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" alt="Facebook" width="30" height="30">
-        </a>
-        <a href="https://www.instagram.com/clover_multicaps4/" target="_blank">
+          </a>
+          <a href="https://www.instagram.com/clover_multicaps4/" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" width="30" height="30">
-         
-
+          </a>
           <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" alt="TikTok"></a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script>
+    function abrirModal(elemento) {
+      const imagen = elemento.querySelector('img').src;
+      const nombre = elemento.querySelector('h3').textContent;
+      const descripcion = elemento.querySelector('p').textContent;
+      const precio = elemento.querySelector('span').textContent;
 
+      document.getElementById('modalImagen').src = imagen;
+      document.getElementById('modalNombre').textContent = nombre;
+      document.getElementById('modalDescripcion').textContent = descripcion;
+      document.getElementById('modalPrecio').textContent = precio;
+      document.getElementById('cantidad').value = 1;
+
+      document.getElementById('modalProducto').classList.add('activo');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalProducto').classList.remove('activo');
+    }
+
+    function agregarAlCarrito() {
+      const nombre = document.getElementById('modalNombre').textContent;
+      const cantidad = document.getElementById('cantidad').value;
+      const precio = document.getElementById('modalPrecio').textContent;
+
+      alert('✓ ' + cantidad + 'x ' + nombre + ' agregado al carrito\nPrecio: ' + precio);
+      cerrarModal();
+    }
+
+    // Cerrar modal al hacer click fuera
+    window.onclick = function(event) {
+      const modal = document.getElementById('modalProducto');
+      if (event.target == modal) {
+        cerrarModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
