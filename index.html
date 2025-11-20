@@ -11,9 +11,7 @@
 
   <header>
     <h1>Clover Multicaps</h1>
-    <header>
-      <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
-    </header>
+    <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
 
     <nav>
       <ul>
@@ -35,39 +33,40 @@
 
       <div class="producto-lista">
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra 1">
+        <!-- Añadí data-precio (valor numérico sin $ ni comas) -->
+        <div class="producto" data-precio="499.00">
+          <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
           <h3>Gorra alo Negra</h3>
           <p>Un diseño básico y elegante para cualquier ocasión.</p>
         </div>
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra 2">
+        <div class="producto" data-precio="599.00">
+          <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra dandy mago">
           <h3>Gorra dandy "mago"</h3>
           <p>Buen diseño y materiales de calidad</p>
         </div>
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra 3">
+        <div class="producto" data-precio="549.00">
+          <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra sad boyz">
           <h3>Gorra dandy "sad boyz"</h3>
           <p>Un modelo moderno con estilo urbano</p>
         </div>
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra 4">
+        <div class="producto" data-precio="1499.00">
+          <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra dandy del Canelo">
           <h3>Gorra dandy del Canelo</h3>
           <p>Colaboración con el boxeador mexicano.</p>
-          <span style="display:none;">$1,499.00</span>
+          <span class="visor-precio" style="display:none;">$1,499.00</span>
         </div>
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra 5">
+        <div class="producto" data-precio="699.00">
+          <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra de Natanael Cano">
           <h3>Gorra de Natanael Cano</h3>
           <p>Gorra del barbas hats inspirada en el famoso cantante mexicano Natanael Cano</p>
         </div>
 
-        <div class="producto" onclick="abrirModal(this)">
-          <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra 6">
+        <div class="producto" data-precio="749.00">
+          <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra Chrome">
           <h3>Gorra Chrome</h3>
           <p>Gorra chrome del barbas hats, diseño impecable y llamativo, siempre destaca</p>
         </div>
@@ -77,10 +76,9 @@
   </main>
 
   <!-- Modal -->
-  <div class="modal-contenido">
-  <div id="modalProducto" class="modal">
+  <div id="modalProducto" class="modal" aria-hidden="true">
     <div class="modal-contenido">
-      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <button class="cerrar" id="cerrarModalBtn" aria-label="Cerrar">&times;</button>
 
       <div class="modal-body">
         <img id="modalImagen" src="" alt="Producto">
@@ -91,8 +89,8 @@
           <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
 
           <div class="modal-acciones">
-            <input type="number" id="cantidad" value="1" min="1">
-            <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+            <input type="number" id="cantidad" value="1" min="1" aria-label="Cantidad">
+            <button id="btnAgregar">Agregar al Carrito</button>
           </div>
         </div>
 
@@ -101,14 +99,14 @@
   </div>
 
   <!-- RECIBO FLOTANTE -->
-  <div id="recibo" class="recibo oculto">
+  <div id="recibo" class="recibo oculto" aria-live="polite">
     <h3>Recibo</h3>
-    <p><strong>Producto:</strong> <span id="rProducto"></span></p>
-    <p><strong>Cantidad:</strong> <span id="rCantidad"></span></p>
-    <p><strong>Total:</strong> <span id="rTotal"></span></p>
+    <ul id="rLista" class="r-lista"></ul>
+    <p class="recibo-total"><strong>Total:</strong> <span id="rTotal">$0.00</span></p>
 
-    <input type="tel" id="telefono" placeholder="Número telefónico">
-    <button onclick="enviarRecibo()">Enviar recibo</button>
+    <input type="tel" id="telefono" placeholder="Número telefónico (ej: 8123456789)" aria-label="Teléfono">
+    <button id="enviarBtn">Enviar recibo</button>
+    <button id="vaciarBtn" class="vaciar">Vaciar carrito</button>
   </div>
 
   <footer class="footer">
@@ -124,118 +122,103 @@
       <div class="footer-redes">
         <h4>SÍGUENOS</h4>
         <div class="iconos">
-          <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30">
+          <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank" rel="noopener">
+            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30" alt="Facebook">
           </a>
 
-          <a href="https://www.instagram.com/clover_multicaps4/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30">
+          <a href="https://www.instagram.com/clover_multicaps4/" target="_blank" rel="noopener">
+            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30" alt="Instagram">
           </a>
 
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30" alt="Otra red"></a>
         </div>
       </div>
-    <script>
-  // asigna onclick a cada .producto
-  var prods = document.getElementsByClassName('producto');
-  for (var i = 0; i < prods.length; i++) {
-    prods[i].onclick = function () { abrirModal(this); };
-  }
 
-  // abre modal y copia datos
-  function abrirModal(elem) {
-    var imgEl = elem.getElementsByTagName('img')[0];
-    var h3 = elem.getElementsByTagName('h3')[0];
-    var p = elem.getElementsByTagName('p')[0];
-    var sp = elem.getElementsByTagName('span')[0];
+    </div>
+  </footer>
 
-    var img = imgEl ? imgEl.src : '';
-    var nombre = h3 ? h3.innerText : '';
-    var desc = p ? p.innerText : '';
-    var precioTxt = sp ? sp.innerText : '';
+<script>
+// carrito global
+var carrito = [];
 
-    document.getElementById('modalImagen').src = img;
-    document.getElementById('modalNombre').innerText = nombre;
-    document.getElementById('modalDescripcion').innerText = desc;
-    document.getElementById('modalPrecio').innerText = precioTxt;
+// abrir modal al hacer clic en producto
+var productos = document.querySelectorAll('.producto');
+var modal = document.getElementById('modalProducto');
+var modalImagen = document.getElementById('modalImagen');
+var modalNombre = document.getElementById('modalNombre');
+var modalDescripcion = document.getElementById('modalDescripcion');
+var modalPrecio = document.getElementById('modalPrecio');
+var cantidadEl = document.getElementById('cantidad');
+var rLista = document.getElementById('rLista');
+var rTotal = document.getElementById('rTotal');
+var reciboEl = document.getElementById('recibo');
 
-    document.getElementById('cantidad').value = 1;
-
-    // muestro el modal con estilo (simple)
-    var modal = document.getElementById('modalProducto');
+productos.forEach(function(prod){
+  prod.onclick = function(){
+    modalImagen.src = prod.querySelector('img').src;
+    modalNombre.innerText = prod.querySelector('h3').innerText;
+    modalDescripcion.innerText = prod.querySelector('p').innerText;
+    var precio = prod.dataset.precio || prod.querySelector('span')?.innerText.replace('$','') || 0;
+    modalPrecio.innerText = '$' + Number(precio).toFixed(2);
+    modalPrecio.dataset.raw = precio;
+    cantidadEl.value = 1;
     modal.style.display = 'flex';
-  }
-
-  // cierra modal
-  function cerrarModal() {
-    var modal = document.getElementById('modalProducto');
-    modal.style.display = 'none';
-  }
-
-  // genera recibo sencillo
-  function agregarAlCarrito() {
-    var nombre = document.getElementById('modalNombre').innerText;
-    var cantidad = parseInt(document.getElementById('cantidad').value, 10);
-    if (!cantidad || cantidad < 1) cantidad = 1;
-
-    var precioTxt = document.getElementById('modalPrecio').innerText || '';
-    // quitar $ y comas (manera simple)
-    if (precioTxt.charAt(0) === '$') {
-      precioTxt = precioTxt.slice(1);
-    }
-    precioTxt = precioTxt.split(',').join(''); // quita comas de miles
-    var precio = Number(precioTxt);
-    if (isNaN(precio)) precio = 0;
-
-    var total = precio * cantidad;
-
-    document.getElementById('rProducto').innerText = nombre;
-    document.getElementById('rCantidad').innerText = cantidad;
-    document.getElementById('rTotal').innerText = '$' + total.toFixed(2);
-
-    // muestro recibo (simple)
-    document.getElementById('recibo').style.display = 'block';
-
-    cerrarModal();
-  }
-
-  // enviar por WhatsApp (quita caracteres no numéricos manualmente)
-  function enviarRecibo() {
-    var raw = document.getElementById('telefono').value || '';
-    var tel = '';
-    for (var i = 0; i < raw.length; i++) {
-      var c = raw.charAt(i);
-      if (c >= '0' && c <= '9') tel += c;
-    }
-    if (tel.length < 10) {
-      alert('Ingresa un número telefónico válido.');
-      return;
-    }
-
-    var prod = document.getElementById('rProducto').innerText;
-    var cant = document.getElementById('rCantidad').innerText;
-    var total = document.getElementById('rTotal').innerText;
-
-    var mensaje = 'Recibo Clover Multicaps%0A' +
-                  'Producto: ' + prod + '%0A' +
-                  'Cantidad: ' + cant + '%0A' +
-                  'Total: ' + total + '%0A%0A' +
-                  '¡Gracias por tu compra!';
-
-    // abre WhatsApp (prefijo 52 para México; si otro país, cambia)
-    window.open('https://wa.me/52' + tel + '?text=' + mensaje, '_blank');
-  }
-
-  // cerrar modal si se hace clic fuera (simple)
-  window.onclick = function (e) {
-    var modal = document.getElementById('modalProducto');
-    if (e.target === modal) {
-      cerrarModal();
-    }
   };
+});
+
+// cerrar modal
+document.getElementById('cerrarModalBtn').onclick = function(){
+  modal.style.display = 'none';
+};
+
+// agregar al carrito (solo suma al listado)
+document.getElementById('btnAgregar').onclick = function(){
+  var nombre = modalNombre.innerText;
+  var cantidad = parseInt(cantidadEl.value) || 1;
+  var precio = Number(modalPrecio.dataset.raw) || 0;
+
+  carrito.push({nombre: nombre, cantidad: cantidad, precio: precio});
+  actualizarRecibo();
+  modal.style.display = 'none';
+};
+
+// actualizar recibo
+function actualizarRecibo(){
+  rLista.innerHTML = '';
+  var total = 0;
+  carrito.forEach(function(it){
+    var subtotal = it.cantidad * it.precio;
+    total += subtotal;
+    rLista.innerHTML += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
+  });
+  rTotal.innerText = '$' + total.toFixed(2);
+  reciboEl.style.display = carrito.length ? 'block' : 'none';
+}
+
+// enviar WhatsApp
+document.getElementById('enviarBtn').onclick = function(){
+  var tel = document.getElementById('telefono').value.replace(/\D/g,'');
+  if(tel.length < 10){ alert('Número inválido'); return; }
+  if(carrito.length === 0){ alert('Carrito vacío'); return; }
+
+  var mensaje = 'Recibo Clover Multicaps\n';
+  var total = 0;
+  carrito.forEach(function(it){
+    var subtotal = it.cantidad * it.precio;
+    total += subtotal;
+    mensaje += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
+  });
+  mensaje += '\nTotal: $' + total.toFixed(2) + '\n¡Gracias por tu compra!';
+
+  window.open('https://wa.me/52' + tel + '?text=' + encodeURIComponent(mensaje), '_blank');
+};
+
+// cerrar modal clic afuera o Esc
+window.onclick = function(e){ if(e.target === modal) modal.style.display = 'none'; };
+window.onkeydown = function(e){ if(e.key === 'Escape') modal.style.display = 'none'; };
+
+
 </script>
-
-
 
 </body>
 </html>
