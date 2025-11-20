@@ -139,92 +139,9 @@
           <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30"></a>
         </div>
       </div>
-
     </div>
   </footer>
 
-
-<script>
-  // poner función al dar clic en cada producto
-  var prods = document.getElementsByClassName('producto');
-  for (var i = 0; i < prods.length; i++) {
-    prods[i].onclick = function () { abrirModal(this); };
-  }
-
-  // abrir modal y mostrar datos del producto
-  function abrirModal(elem) {
-    var imgEl = elem.getElementsByTagName('img')[0];
-    var h3 = elem.getElementsByTagName('h3')[0];
-    var p = elem.getElementsByTagName('p')[0];
-    var sp = elem.getElementsByTagName('span')[0];
-
-    var img = imgEl ? imgEl.src : '';
-    var nombre = h3 ? h3.textContent : '';
-    var desc = p ? p.textContent : '';
-    var precioTxt = sp ? sp.textContent : '';
-
-    document.getElementById('modalImagen').src = img;
-    document.getElementById('modalNombre').textContent = nombre;
-    document.getElementById('modalDescripcion').textContent = desc;
-    document.getElementById('modalPrecio').textContent = precioTxt;
-
-    document.getElementById('cantidad').value = 1;
-    document.getElementById('modalProducto').classList.add('activo');
-  }
-
-  // cerrar modal
-  function cerrarModal() {
-    document.getElementById('modalProducto').classList.remove('activo');
-  }
-
-  // generar recibo flotante
-  function agregarAlCarrito() {
-    var nombre = document.getElementById('modalNombre').textContent;
-    var cantidad = parseInt(document.getElementById('cantidad').value, 10) || 1;
-    var precioTxt = document.getElementById('modalPrecio').textContent || '';
-
-    // limpiar precio
-    var num = precioTxt.replace(/[^0-9.]/g, '');
-    var precio = parseFloat(num) || 0;
-    var total = precio * cantidad;
-
-    document.getElementById('rProducto').textContent = nombre;
-    document.getElementById('rCantidad').textContent = cantidad;
-    document.getElementById('rTotal').textContent = '$' + total.toFixed(2);
-
-    document.getElementById('recibo').classList.remove('oculto');
-
-    cerrarModal();
-  }
-
-  // enviar recibo por WhatsApp
-  function enviarRecibo() {
-    var tel = document.getElementById('telefono').value.replace(/\D/g, '');
-    if (!tel || tel.length < 10) {
-      alert('Ingresa un número telefónico válido.');
-      return;
-    }
-
-    var prod = document.getElementById('rProducto').textContent;
-    var cant = document.getElementById('rCantidad').textContent;
-    var total = document.getElementById('rTotal').textContent;
-
-    var msg = ' Recibo Clover Multicaps' +
-              'Producto: ' + encodeURIComponent(prod) + '%0A' +
-              'Cantidad: ' + encodeURIComponent(cant) + '%0A' +
-              'Total: ' + encodeURIComponent(total) + '%0A%0A' +
-              '¡Gracias por tu compra!  ';
-
-    window.open('https://wa.me/52' + tel + '?text=' + msg, '_blank');
-  }
-
-  // cerrar modal clic fuera
-  window.onclick = function (e) {
-    if (e.target && e.target.id === 'modalProducto') {
-      cerrarModal();
-    }
-  };
-</script>
 
 
 </body>
