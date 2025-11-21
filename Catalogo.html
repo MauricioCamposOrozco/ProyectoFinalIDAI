@@ -31,7 +31,7 @@
   <section class="productos">
     <div class="producto-lista">
 
-      <!-- === Gorras del catálogo original / nuevas generales === -->
+      <!-- Gorras del catálogo-->
 
       <div class="producto" data-precio="3300" data-stock="5">
         <img src="imagenes-proyecto/Gorra jordan negra.jpg" alt="Gorra Jordan Negra">
@@ -117,7 +117,6 @@
         <p>Acabado metálico y exclusivo.</p>
       </div>
 
-      <!-- === Ahora: las gorras que están en tu INDEX (añadidas) === -->
 
       <div class="producto" data-precio="2099" data-stock="5">
         <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
@@ -216,7 +215,6 @@
 </footer>
 
 <script>
-/* JS simple: modal, inventario, carrito (misma lógica básica del index) */
 
 var carrito = [];
 var productos = document.querySelectorAll('.producto');
@@ -233,7 +231,6 @@ var rLista = document.getElementById('rLista');
 var rTotal = document.getElementById('rTotal');
 var reciboEl = document.getElementById('recibo');
 
-/* inicializar badges y dataset.index */
 for (var i = 0; i < productos.length; i++) {
   var stock = Number(productos[i].dataset.stock) || 0;
   productos[i].dataset.index = i;
