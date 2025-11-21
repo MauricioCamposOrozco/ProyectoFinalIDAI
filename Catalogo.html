@@ -1,111 +1,351 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Gorras</title>
-   <link rel="stylesheet" href="style-catalogo.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo - Clover Multicaps</title>
+  <link rel="stylesheet" href="style-index.css">
+  <style>
+    /* ajustes menores para catálogo */
+    .catalogo-titulo { text-align:center; margin:36px 0 18px; font-size:28px; color:#222; font-weight:700; }
+    .producto-lista { max-width:1200px; margin:0 auto; }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Catálogo de Gorras</h1>
-        <nav>
-            <a href="index.html">Inicio</a> |
-            <a href="Catalogo.html">Catálogo</a> |
-            <a href="Información.html">Información</a>
-        </nav>
-    </header>
+<header>
+  <h1>Clover Multicaps</h1>
+  <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Catalogo.html">Catálogo</a></li>
+      <li><a href="Información.html">Información</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <h2>Nuestras Gorras</h2>
+<main>
+  <h2 class="catalogo-titulo">Catálogo - Todas nuestras gorras</h2>
 
-    <div class="contenedor">
-        <div class="gorra">
-            <p>Gorra Negra Clásica</p>
-            <p class="precio">$3300 MXN</p>
-            <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra 1">s
+  <section class="productos">
+    <div class="producto-lista">
+
+      <!-- === Gorras del catálogo original / nuevas generales === -->
+
+      <div class="producto" data-precio="3300" data-stock="5">
+        <img src="imagenes-proyecto/Gorra jordan negra.jpg" alt="Gorra Jordan Negra">
+        <h3>Gorra Jordan Negra</h3>
+        <p>Clásica y elegante, ideal para cualquier outfit.</p>
+      </div>
+
+      <div class="producto" data-precio="1500" data-stock="8">
+        <img src="imagenes-proyecto/Gorra LA azul.jpg" alt="Gorra LA azul">
+        <h3>Gorra LA Azul</h3>
+        <p>Modelo deportivo con logo bordado.</p>
+      </div>
+
+      <div class="producto" data-precio="1799" data-stock="7">
+        <img src="imagenes-proyecto/Gorra new era verde.jpg" alt="Gorra New Era verde">
+        <h3>Gorra New Era Verde</h3>
+        <p>Modelo New Era, color verde militar.</p>
+      </div>
+
+      <div class="producto" data-precio="1699" data-stock="4">
+        <img src="imagenes-proyecto/Gorra nike negra.jpg" alt="Gorra Nike negra">
+        <h3>Gorra Nike Negra</h3>
+        <p>Minimalista y cómoda para el día a día.</p>
+      </div>
+
+      <div class="producto" data-precio="2000" data-stock="5">
+        <img src="imagenes-proyecto/Gorra NY azul marino.jpg" alt="Gorra NY azul marino">
+        <h3>Gorra NY Azul Marino</h3>
+        <p>Clásico bordado de la gran ciudad.</p>
+      </div>
+
+      <div class="producto" data-precio="1700" data-stock="6">
+        <img src="imagenes-proyecto/gorra blanca deportiva.jpg" alt="Gorra blanca deportiva">
+        <h3>Gorra Blanca Deportiva</h3>
+        <p>Transpirable y ligera.</p>
+      </div>
+
+      <div class="producto" data-precio="1500" data-stock="4">
+        <img src="imagenes-proyecto/gorra roja casual.jpg" alt="Gorra roja casual">
+        <h3>Gorra Roja Casual</h3>
+        <p>Color vivo para destacar.</p>
+      </div>
+
+      <div class="producto" data-precio="3000" data-stock="3">
+        <img src="imagenes-proyecto/gorra gris minimalista.jpg" alt="Gorra gris">
+        <h3>Gorra Gris Minimalista</h3>
+        <p>Perfecta para looks sobrios.</p>
+      </div>
+
+      <div class="producto" data-precio="1700" data-stock="7">
+        <img src="imagenes-proyecto/gorra verde militar.jpg" alt="Gorra verde militar">
+        <h3>Gorra Verde Militar</h3>
+        <p>Estilo táctico y versátil.</p>
+      </div>
+
+      <div class="producto" data-precio="1999" data-stock="5">
+        <img src="imagenes-proyecto/gorra azul marino2.jpg" alt="Gorra azul marino 2">
+        <h3>Gorra Azul Marino</h3>
+        <p>Acabado premium.</p>
+      </div>
+
+      <div class="producto" data-precio="1499" data-stock="8">
+        <img src="imagenes-proyecto/gorra amarillo sol.jpg" alt="Gorra amarillo">
+        <h3>Gorra Amarillo Sol</h3>
+        <p>Color brillante, ideal para verano.</p>
+      </div>
+
+      <div class="producto" data-precio="1899" data-stock="4">
+        <img src="imagenes-proyecto/gorra rosa pastel.jpg" alt="Gorra rosa pastel">
+        <h3>Gorra Rosa Pastel</h3>
+        <p>Tono suave y femenino.</p>
+      </div>
+
+      <div class="producto" data-precio="2199" data-stock="6">
+        <img src="imagenes-proyecto/gorra camuflaje.jpg" alt="Gorra camuflaje">
+        <h3>Gorra Camuflaje Táctica</h3>
+        <p>Patrón camuflaje estilo militar.</p>
+      </div>
+
+      <div class="producto" data-precio="2999" data-stock="2">
+        <img src="imagenes-proyecto/gorra dorada premium.jpg" alt="Gorra dorada premium">
+        <h3>Gorra Dorada Premium</h3>
+        <p>Acabado metálico y exclusivo.</p>
+      </div>
+
+      <!-- === Ahora: las gorras que están en tu INDEX (añadidas) === -->
+
+      <div class="producto" data-precio="2099" data-stock="5">
+        <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
+        <h3>Gorra alo Negra</h3>
+        <p>Un diseño básico y elegante para cualquier ocasión.</p>
+      </div>
+
+      <div class="producto" data-precio="1499" data-stock="8">
+        <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra dandy mago">
+        <h3>Gorra dandy "mago"</h3>
+        <p>Buen diseño y materiales de calidad.</p>
+      </div>
+
+      <div class="producto" data-precio="1499" data-stock="6">
+        <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra sad boyz">
+        <h3>Gorra dandy "sad boyz"</h3>
+        <p>Un modelo moderno con estilo urbano.</p>
+      </div>
+
+      <div class="producto" data-precio="1499" data-stock="4">
+        <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra dandy del Canelo">
+        <h3>Gorra dandy del Canelo</h3>
+        <p>Colaboración con el boxeador mexicano.</p>
+      </div>
+
+      <div class="producto" data-precio="1699" data-stock="7">
+        <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra de Natanael Cano">
+        <h3>Gorra de Natanael Cano</h3>
+        <p>Inspirada en el famoso cantante mexicano Natanael Cano.</p>
+      </div>
+
+      <div class="producto" data-precio="3000" data-stock="3">
+        <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra Chrome">
+        <h3>Gorra Chrome</h3>
+        <p>Diseño impecable y llamativo.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modalProducto" class="modal">
+  <div class="modal-contenido">
+    <button class="cerrar" id="cerrarModalBtn">&times;</button>
+    <div class="modal-body">
+      <img id="modalImagen" src="" alt="Producto">
+      <div class="modal-info">
+        <h2 id="modalNombre"></h2>
+        <p id="modalDescripcion"></p>
+        <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+        <p id="modalStock"></p>
+        <div class="modal-acciones">
+          <input type="number" id="cantidad" value="1" min="1">
+          <button id="btnAgregar">Agregar al Carrito</button>
         </div>
-        <div class="gorra">
-            <p>Gorra Blanca Deportiva</p>
-            <p class="precio">$1500 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Roja Casual</p>
-            <p class="precio">$1500 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Gris Minimalista</p>
-            <p class="precio">$3000 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Verde Militar</p>
-            <p class="precio">$1700 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Azul Marino</p>
-            <p class="precio">$2000 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Amarillo Sol</p>
-            <p class="precio">$1700 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Rosa Pastel</p>
-            <p class="precio">$1499 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Café Arena</p>
-            <p class="precio">$1899 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Naranja Fuego</p>
-            <p class="precio">$1799 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Violeta Urbana</p>
-            <p class="precio">$1899 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Beige Casual</p>
-            <p class="precio">$1799 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Plateada Metálica</p>
-            <p class="precio">$1899 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Dorada Premium</p>
-            <p class="precio">$2999 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Camuflaje Táctica</p>
-            <p class="precio">$2199 MXN</p>
-        </div> 
-        <div class="gorra">
-            <p>Gorra Azul Cielo</p>
-            <p class="precio">$1999 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Negra Premium</p>
-            <p class="precio">$2999 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Blanca Classic</p>
-            <p class="precio">$1799 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Verde Lima</p>
-            <p class="precio">$1499 MXN</p>
-        </div>
-        <div class="gorra">
-            <p>Gorra Roja Intensa</p>
-            <p class="precio">$1599 MXN</p>
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Recibo -->
+<div id="recibo" class="recibo oculto">
+  <h3>Recibo</h3>
+  <ul id="rLista"></ul>
+  <p class="recibo-total"><strong>Total:</strong> <span id="rTotal">$0.00</span></p>
+  <input type="tel" id="telefono" placeholder="Número telefónico">
+  <button id="enviarBtn">Enviar recibo</button>
+  <button id="vaciarBtn" class="vaciar">Vaciar carrito</button>
+</div>
+
+<footer class="footer">
+  <div class="footer-contenedor">
+    <div class="footer-info">
+      <ul>
+        <li><a href="PreguntasFrecuentes.html">Preguntas Frecuentes</a></li>
+        <li><a href="Devoluciones.html">Políticas de Devolución</a></li>
+      </ul>
     </div>
 
-    <footer>
-        <p>© Clover Multicaps</p>
-    </footer>
+    <div class="footer-redes">
+      <h4>SÍGUENOS</h4>
+      <div class="iconos">
+        <a href="https://www.facebook.com/profile.php?id=100114776131599" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30" alt="Facebook">
+        </a>
+
+        <a href="https://www.instagram.com/clover_multicaps4/" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30" alt="Instagram">
+        </a>
+
+        <a href="https://www.tiktok.com/@clover.multicaps"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30" alt="TikTok"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* JS simple: modal, inventario, carrito (misma lógica básica del index) */
+
+var carrito = [];
+var productos = document.querySelectorAll('.producto');
+var modal = document.getElementById('modalProducto');
+var modalImagen = document.getElementById('modalImagen');
+var modalNombre = document.getElementById('modalNombre');
+var modalDescripcion = document.getElementById('modalDescripcion');
+var modalPrecio = document.getElementById('modalPrecio');
+var modalStock = document.getElementById('modalStock');
+var cantidadEl = document.getElementById('cantidad');
+var btnAgregar = document.getElementById('btnAgregar');
+var cerrarModalBtn = document.getElementById('cerrarModalBtn');
+var rLista = document.getElementById('rLista');
+var rTotal = document.getElementById('rTotal');
+var reciboEl = document.getElementById('recibo');
+
+/* inicializar badges y dataset.index */
+for (var i = 0; i < productos.length; i++) {
+  var stock = Number(productos[i].dataset.stock) || 0;
+  productos[i].dataset.index = i;
+  var badge = document.createElement('span');
+  badge.className = 'stock-badge';
+  badge.id = 'stock-badge-' + i;
+  badge.innerText = stock > 0 ? 'Stock: ' + stock : 'Agotado';
+  if (stock === 0) badge.classList.add('agotado');
+  productos[i].appendChild(badge);
+}
+
+/* abrir modal */
+for (var i = 0; i < productos.length; i++) {
+  productos[i].onclick = function () {
+    var idx = this.dataset.index;
+    var prod = productos[idx];
+    modalImagen.src = prod.querySelector('img') ? prod.querySelector('img').src : '';
+    modalNombre.innerText = prod.querySelector('h3').innerText;
+    modalDescripcion.innerText = prod.querySelector('p').innerText;
+    modalPrecio.innerText = '$' + Number(prod.dataset.precio).toFixed(2);
+    cantidadEl.value = 1;
+    modalStock.innerText = 'Disponible: ' + prod.dataset.stock;
+    btnAgregar.disabled = Number(prod.dataset.stock) === 0;
+    modal.dataset.index = idx;
+    modal.style.display = 'flex';
+  };
+}
+
+/* cerrar modal */
+cerrarModalBtn.onclick = function () { modal.style.display = 'none'; };
+window.onclick = function (e) { if (e.target === modal) modal.style.display = 'none'; };
+window.onkeydown = function (e) { if (e.key === 'Escape') modal.style.display = 'none'; };
+
+/* agregar al carrito (verifica stock) */
+btnAgregar.onclick = function () {
+  var idx = modal.dataset.index;
+  var prod = productos[idx];
+  var stock = Number(prod.dataset.stock);
+  var cantidad = Number(cantidadEl.value);
+
+  if (cantidad <= 0) { alert('Cantidad inválida'); return; }
+  if (cantidad > stock) { alert('No hay suficiente stock'); return; }
+
+  var existe = null;
+  for (var j = 0; j < carrito.length; j++) {
+    if (carrito[j].idx == idx) { existe = carrito[j]; break; }
+  }
+  if (existe) {
+    // verificar límite: no permitir superar stock total
+    if (cantidad > stock) { alert('No hay suficiente stock'); return; }
+    existe.cantidad += cantidad;
+  } else {
+    carrito.push({ idx: idx, nombre: prod.querySelector('h3').innerText, cantidad: cantidad, precio: Number(prod.dataset.precio) });
+  }
+
+  prod.dataset.stock = stock - cantidad;
+  var badgeEl = document.getElementById('stock-badge-' + idx);
+  if (badgeEl) badgeEl.innerText = prod.dataset.stock > 0 ? 'Stock: ' + prod.dataset.stock : 'Agotado';
+
+  actualizarRecibo();
+  modal.style.display = 'none';
+  console.log('Carrito:', carrito);
+};
+
+/* actualizar recibo */
+function actualizarRecibo() {
+  rLista.innerHTML = '';
+  var total = 0;
+  for (var i = 0; i < carrito.length; i++) {
+    var it = carrito[i];
+    var subtotal = it.cantidad * it.precio;
+    total += subtotal;
+    var li = document.createElement('li');
+    li.className = 'r-item';
+    li.innerText = it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2);
+    rLista.appendChild(li);
+  }
+  rTotal.innerText = '$' + total.toFixed(2);
+  reciboEl.style.display = carrito.length > 0 ? 'block' : 'none';
+}
+
+/* vaciar carrito */
+document.getElementById('vaciarBtn').onclick = function () {
+  for (var i = 0; i < carrito.length; i++) {
+    var it = carrito[i];
+    var prod = productos[it.idx];
+    prod.dataset.stock = Number(prod.dataset.stock) + it.cantidad;
+    var badge = document.getElementById('stock-badge-' + it.idx);
+    if (badge) badge.innerText = 'Stock: ' + prod.dataset.stock;
+  }
+  carrito = [];
+  actualizarRecibo();
+};
+
+/* enviar por WhatsApp */
+document.getElementById('enviarBtn').onclick = function () {
+  var tel = document.getElementById('telefono').value.replace(/\D/g, '');
+  if (tel.length < 10) { alert('Número inválido'); return; }
+  if (carrito.length === 0) { alert('Carrito vacío'); return; }
+
+  var mensaje = 'Recibo Clover Multicaps\n';
+  var total = 0;
+  for (var i = 0; i < carrito.length; i++) {
+    var it = carrito[i];
+    var subtotal = it.cantidad * it.precio;
+    total += subtotal;
+    mensaje += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
+  }
+  mensaje += '\nTotal: $' + total.toFixed(2) + '\n¡Gracias por tu compra!';
+  window.open('https://wa.me/52' + tel + '?text=' + encodeURIComponent(mensaje), '_blank');
+};
+</script>
 
 </body>
 </html>
