@@ -6,108 +6,99 @@
   <title>Clover Multicaps - Gorras</title>
   <link rel="stylesheet" href="style-index.css">
 </head>
-
 <body>
 
-  <header>
-    <h1>Clover Multicaps</h1>
-    <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
+<header>
+  <h1>Clover Multicaps</h1>
+  <p style="margin-top: 10px; font-size: 18px; color: #ccc;">Tu estilo, nuestra inspiración.</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Catalogo.html">Catálogo</a></li>
+      <li><a href="Información.html">Información</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="Catalogo.html">Catálogo</a></li>
-        <li><a href="Información.html">Información</a></li>
-      </ul>
-    </nav>
-  </header>
+<main>
+  <section class="presentacion">
+    <h2>Bienvenido a Clover Multicaps</h2>
+    <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo.</p>
+  </section>
 
-  <main>
-    <section class="presentacion">
-      <h2>Bienvenido a Clover Multicaps</h2>
-      <p>En Clover Multicaps creemos que una gorra es más que un accesorio: es parte de tu estilo.</p>
-    </section>
+  <section class="productos">
+    <h2>Nuestras gorras más populares</h2>
+    <div class="producto-lista">
 
-    <section class="productos">
-      <h2>Nuestras gorras más populares</h2>
-
-      <div class="producto-lista">
-
- 
-        <div class="producto" data-precio="2099.00">
-          <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
-          <h3>Gorra alo Negra</h3>
-          <p>Un diseño básico y elegante para cualquier ocasión.</p>
-        </div>
-
-        <div class="producto" data-precio="1499.00">
-          <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra dandy mago">
-          <h3>Gorra dandy "mago"</h3>
-          <p>Buen diseño y materiales de calidad</p>
-        </div>
-
-        <div class="producto" data-precio="1499.00">
-          <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra sad boyz">
-          <h3>Gorra dandy "sad boyz"</h3>
-          <p>Un modelo moderno con estilo urbano</p>
-        </div>
-
-        <div class="producto" data-precio="1499.00">
-          <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra dandy del Canelo">
-          <h3>Gorra dandy del Canelo</h3>
-          <p>Colaboración con el boxeador mexicano.</p>
-          <span class="visor-precio" style="display:none;">$1,499.00</span>
-        </div>
-
-        <div class="producto" data-precio="1699.00">
-          <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra de Natanael Cano">
-          <h3>Gorra de Natanael Cano</h3>
-          <p>Gorra del barbas hats inspirada en el famoso cantante mexicano Natanael Cano</p>
-        </div>
-
-        <div class="producto" data-precio="3000.00">
-          <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra Chrome">
-          <h3>Gorra Chrome</h3>
-          <p>Gorra chrome del barbas hats, diseño impecable y llamativo, siempre destaca</p>
-        </div>
-
+      <div class="producto" data-precio="2099" data-stock="5">
+        <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
+        <h3>Gorra alo Negra</h3>
+        <p>Un diseño básico y elegante para cualquier ocasión.</p>
       </div>
-    </section>
-  </main>
 
-  <!-- Modal -->
-  <div id="modalProducto" class="modal" aria-hidden="true">
-    <div class="modal-contenido">
-      <button class="cerrar" id="cerrarModalBtn" aria-label="Cerrar">&times;</button>
+      <div class="producto" data-precio="1499" data-stock="8">
+        <img src="imagenes-proyecto/gorra mago dandy.jpg" alt="Gorra dandy mago">
+        <h3>Gorra dandy "mago"</h3>
+        <p>Buen diseño y materiales de calidad</p>
+      </div>
 
-      <div class="modal-body">
-        <img id="modalImagen" src="" alt="Producto">
+      <div class="producto" data-precio="1499" data-stock="6">
+        <img src="imagenes-proyecto/sad boyz gorra.jpg" alt="Gorra sad boyz">
+        <h3>Gorra dandy "sad boyz"</h3>
+        <p>Un modelo moderno con estilo urbano</p>
+      </div>
 
-        <div class="modal-info">
-          <h2 id="modalNombre"></h2>
-          <p id="modalDescripcion"></p>
-          <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+      <div class="producto" data-precio="1499" data-stock="4">
+        <img src="imagenes-proyecto/Canelo gorra.webp" alt="Gorra dandy del Canelo">
+        <h3>Gorra dandy del Canelo</h3>
+        <p>Colaboración con el boxeador mexicano.</p>
+      </div>
 
-          <div class="modal-acciones">
-            <input type="number" id="cantidad" value="1" min="1" aria-label="Cantidad">
-            <button id="btnAgregar">Agregar al Carrito</button>
-          </div>
+      <div class="producto" data-precio="1699" data-stock="7">
+        <img src="imagenes-proyecto/Gorra del nata.webp" alt="Gorra de Natanael Cano">
+        <h3>Gorra de Natanael Cano</h3>
+        <p>Inspirada en el famoso cantante mexicano Natanael Cano</p>
+      </div>
+
+      <div class="producto" data-precio="3000" data-stock="3">
+        <img src="imagenes-proyecto/Gorra CHROME CT.webp" alt="Gorra Chrome">
+        <h3>Gorra Chrome</h3>
+        <p>Diseño impecable y llamativo</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modalProducto" class="modal">
+  <div class="modal-contenido">
+    <button class="cerrar" id="cerrarModalBtn">&times;</button>
+    <div class="modal-body">
+      <img id="modalImagen" src="" alt="Producto">
+      <div class="modal-info">
+        <h2 id="modalNombre"></h2>
+        <p id="modalDescripcion"></p>
+        <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
+        <p id="modalStock"></p>
+        <div class="modal-acciones">
+          <input type="number" id="cantidad" value="1" min="1">
+          <button id="btnAgregar">Agregar al Carrito</button>
         </div>
-
       </div>
     </div>
   </div>
+</div>
 
-  <!-- RECIBO FLOTANTE -->
-  <div id="recibo" class="recibo oculto" aria-live="polite">
-    <h3>Recibo</h3>
-    <ul id="rLista" class="r-lista"></ul>
-    <p class="recibo-total"><strong>Total:</strong> <span id="rTotal">$0.00</span></p>
-
-    <input type="tel" id="telefono" placeholder="Número telefónico (ej: 8123456789)" aria-label="Teléfono">
-    <button id="enviarBtn">Enviar recibo</button>
-    <button id="vaciarBtn" class="vaciar">Vaciar carrito</button>
-  </div>
+<!-- Recibo -->
+<div id="recibo" class="recibo oculto">
+  <h3>Recibo</h3>
+  <ul id="rLista"></ul>
+  <p class="recibo-total"><strong>Total:</strong> <span id="rTotal">$0.00</span></p>
+  <input type="tel" id="telefono" placeholder="Número telefónico">
+  <button id="enviarBtn">Enviar recibo</button>
+  <button id="vaciarBtn" class="vaciar">Vaciar carrito</button>
+</div>
 
   <footer class="footer">
     <div class="footer-contenedor">
@@ -137,86 +128,125 @@
   </footer>
 
 <script>
-// carrito global
+// --- Variables ---
 var carrito = [];
-
-// abrir modal al hacer clic en producto
 var productos = document.querySelectorAll('.producto');
 var modal = document.getElementById('modalProducto');
 var modalImagen = document.getElementById('modalImagen');
 var modalNombre = document.getElementById('modalNombre');
 var modalDescripcion = document.getElementById('modalDescripcion');
 var modalPrecio = document.getElementById('modalPrecio');
+var modalStock = document.getElementById('modalStock');
 var cantidadEl = document.getElementById('cantidad');
+var btnAgregar = document.getElementById('btnAgregar');
+var cerrarModalBtn = document.getElementById('cerrarModalBtn');
 var rLista = document.getElementById('rLista');
 var rTotal = document.getElementById('rTotal');
 var reciboEl = document.getElementById('recibo');
 
-productos.forEach(function(prod){
-  prod.onclick = function(){
+// --- Inicializar inventario ---
+for(var i=0; i<productos.length; i++){
+  var stock = Number(productos[i].dataset.stock);
+  var badge = document.createElement('span');
+  badge.className = 'stock-badge';
+  badge.id = 'stock-badge-' + i;
+  badge.innerText = stock > 0 ? 'Stock: '+stock : 'Agotado';
+  productos[i].appendChild(badge);
+}
+
+// --- Abrir modal ---
+for(var i=0; i<productos.length; i++){
+  productos[i].dataset.index = i;
+  productos[i].onclick = function(){
+    var idx = this.dataset.index;
+    var prod = productos[idx];
     modalImagen.src = prod.querySelector('img').src;
     modalNombre.innerText = prod.querySelector('h3').innerText;
     modalDescripcion.innerText = prod.querySelector('p').innerText;
-    var precio = prod.dataset.precio || prod.querySelector('span')?.innerText.replace('$','') || 0;
-    modalPrecio.innerText = '$' + Number(precio).toFixed(2);
-    modalPrecio.dataset.raw = precio;
+    modalPrecio.innerText = '$' + Number(prod.dataset.precio).toFixed(2);
     cantidadEl.value = 1;
+    modalStock.innerText = 'Disponible: ' + prod.dataset.stock;
+    btnAgregar.disabled = Number(prod.dataset.stock) === 0;
+    modal.dataset.index = idx;
     modal.style.display = 'flex';
-  };
-});
+  }
+}
 
-// cerrar modal
-document.getElementById('cerrarModalBtn').onclick = function(){
-  modal.style.display = 'none';
-};
+// --- Cerrar modal ---
+cerrarModalBtn.onclick = function(){ modal.style.display = 'none'; }
+window.onclick = function(e){ if(e.target==modal) modal.style.display='none'; }
+window.onkeydown = function(e){ if(e.key==='Escape') modal.style.display='none'; }
 
-// agregar al carrito (solo suma al listado)
-document.getElementById('btnAgregar').onclick = function(){
-  var nombre = modalNombre.innerText;
-  var cantidad = parseInt(cantidadEl.value) || 1;
-  var precio = Number(modalPrecio.dataset.raw) || 0;
+// --- Agregar al carrito ---
+btnAgregar.onclick = function(){
+  var idx = modal.dataset.index;
+  var prod = productos[idx];
+  var stock = Number(prod.dataset.stock);
+  var cantidad = Number(cantidadEl.value);
 
-  carrito.push({nombre: nombre, cantidad: cantidad, precio: precio});
+  if(cantidad > stock){
+    alert('No hay suficiente stock');
+    return;
+  }
+
+  var existe = carrito.find(function(item){ return item.idx==idx; });
+  if(existe){
+    existe.cantidad += cantidad;
+  } else {
+    carrito.push({idx: idx, nombre: prod.querySelector('h3').innerText, cantidad: cantidad, precio: Number(prod.dataset.precio)});
+  }
+
+  prod.dataset.stock = stock - cantidad;
+  document.getElementById('stock-badge-'+idx).innerText = prod.dataset.stock>0 ? 'Stock: '+prod.dataset.stock : 'Agotado';
   actualizarRecibo();
-  modal.style.display = 'none';
-};
+  modal.style.display='none';
+  console.log('Carrito:', carrito);
+}
 
-// actualizar recibo
+// --- Actualizar recibo ---
 function actualizarRecibo(){
   rLista.innerHTML = '';
   var total = 0;
-  carrito.forEach(function(it){
+  for(var i=0; i<carrito.length; i++){
+    var it = carrito[i];
     var subtotal = it.cantidad * it.precio;
     total += subtotal;
-    rLista.innerHTML += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
-  });
-  rTotal.innerText = '$' + total.toFixed(2);
-  reciboEl.style.display = carrito.length ? 'block' : 'none';
+    var li = document.createElement('li');
+    li.innerText = it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2);
+    rLista.appendChild(li);
+  }
+  rTotal.innerText = '$'+total.toFixed(2);
+  reciboEl.style.display = carrito.length>0 ? 'block' : 'none';
 }
 
-// enviar WhatsApp
+// --- Vaciar carrito ---
+document.getElementById('vaciarBtn').onclick = function(){
+  for(var i=0; i<carrito.length; i++){
+    var it = carrito[i];
+    productos[it.idx].dataset.stock = Number(productos[it.idx].dataset.stock) + it.cantidad;
+    document.getElementById('stock-badge-'+it.idx).innerText = 'Stock: '+productos[it.idx].dataset.stock;
+  }
+  carrito = [];
+  actualizarRecibo();
+}
+
+// --- Enviar WhatsApp ---
 document.getElementById('enviarBtn').onclick = function(){
   var tel = document.getElementById('telefono').value.replace(/\D/g,'');
-  if(tel.length < 10){ alert('Número inválido'); return; }
-  if(carrito.length === 0){ alert('Carrito vacío'); return; }
+  if(tel.length<10){ alert('Número inválido'); return; }
+  if(carrito.length===0){ alert('Carrito vacío'); return; }
 
   var mensaje = 'Recibo Clover Multicaps\n';
   var total = 0;
-  carrito.forEach(function(it){
+  for(var i=0; i<carrito.length; i++){
+    var it = carrito[i];
     var subtotal = it.cantidad * it.precio;
     total += subtotal;
-    mensaje += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
-  });
-  mensaje += '\nTotal: $' + total.toFixed(2) + '\n¡Gracias por tu compra!';
-
-  window.open('https://wa.me/52' + tel + '?text=' + encodeURIComponent(mensaje), '_blank');
-};
-
-// cerrar modal clic afuera o Esc
-window.onclick = function(e){ if(e.target === modal) modal.style.display = 'none'; };
-window.onkeydown = function(e){ if(e.key === 'Escape') modal.style.display = 'none'; };
-
-
+    mensaje += it.cantidad+' x '+it.nombre+' = $'+subtotal.toFixed(2)+'\n';
+  }
+  mensaje += '\nTotal: $'+total.toFixed(2)+'\n¡Gracias por tu compra!';
+  window.open('https://wa.me/52'+tel+'?text='+encodeURIComponent(mensaje),'_blank');
+}
 </script>
 
 </body>

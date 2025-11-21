@@ -428,3 +428,25 @@ main {
     bottom: 16px;
   }
 }
+body {
+  background: linear-gradient(135deg, #3abcd3, #883ad14b, #3abcd3);
+  color: #222;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* badge de stock en la tarjeta */
+.producto { position: relative; }
+.stock-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 8px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.stock-badge.agotado { background: rgba(231, 76, 60, 0.95); }
