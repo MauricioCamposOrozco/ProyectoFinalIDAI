@@ -1,138 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Políticas de Devolución - Clover Multicaps</title>
-  <link rel="stylesheet" href="style-index.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Políticas de Devolución - Clover Multicaps</title>
+<link rel="stylesheet" href="style-index.css">
 
-  <!-- Ajustes puntuales para que la página luzca igual al index,
-       usando la imagen que subiste como fondo del header -->
-  <style>
-    /* Header: gradient encima de la imagen para el mismo look */
-    header {
-      background:
-        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(85, 21, 189, 0.75)),
-        url('/mnt/data/c77dfd4c-0c8e-4657-b050-30364825ee8b.png');
-      background-size: cover;
-      background-position: center top;
-      color: #fff;
-      padding: 48px 20px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    }
+<style>
+/* ---------------- VARIABLES GENERALES ---------------- */
+:root{
+  --bg-light: #f0f2f5;
+  --text-dark: #111217;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --bg-dark-1: #0b0f1a;
+  --bg-dark-2: #101426;
+  --panel: rgba(255,255,255,0.02);
+  --accent-purple: #6a3fe2;
+  --accent-red: #D7263D;
+  --accent-green: #2ecc71;
+  --accent-cyan: #00E5FF;
+  --gold: #E6A800;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --shadow-soft: 0 6px 25px rgba(0,0,0,0.12);
+  --shadow-strong: 0 26px 80px rgba(5,6,15,0.45);
+  --t-fast: 220ms;
+  --t-base: 320ms;
+}
 
-    /* Mantener mismo estilo tipográfico del index */
-    header h1 { font-size: 48px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 3px 12px rgba(0,0,0,0.45); }
-    header p { margin-top: 8px; color: #e6e6e6; }
+/* ---------------- RESET ---------------- */
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Segoe UI', sans-serif; }
+html, body { height: 100%; }
 
-    /* Contenedor principal (igual look que otras páginas) */
-    .contenedor {
-      max-width: 1000px;
-      margin: 36px auto;
-      background: rgba(255,255,255,0.95);
-      padding: 34px;
-      border-radius: 14px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
+/* ---------------- BODY ---------------- */
+body {
+  background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  padding-bottom: 30px;
+}
 
-    .contenedor h2 {
-      font-size: 26px;
-      color: #4c2ed3;
-      margin-bottom: 10px;
-    }
+/* ---------------- HEADER ---------------- */
+header {
+  background: linear-gradient(135deg, #000 0%, var(--accent-purple) 60%);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-strong);
+  position: relative;
+  border-bottom: 3px solid rgba(255,255,255,0.03);
+}
 
-    .contenedor p, .contenedor li {
-      color: #333;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+header::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  top: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 30%), radial-gradient(circle at 70% 70%, rgba(0,229,255,0.03), transparent 30%);
+  transform: rotate(12deg);
+  pointer-events: none;
+  opacity: 0.6;
+}
 
-    footer.footer {
-      margin-top: 36px;
-    }
-  </style>
+header h1 {
+  font-size: 45px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* NAV */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  gap: 30px;
+  padding: 0;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: transform var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+nav a:hover {
+  color: var(--accent-red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 26px rgba(215,38,61,0.06);
+}
+
+/* ---------------- MAIN ---------------- */
+main { padding: 60px 20px; }
+.contenedor {
+  max-width: 1000px;
+  margin: 36px auto;
+  background: rgba(255,255,255,0.05);
+  padding: 34px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.contenedor h2 { font-size: 26px; color: var(--accent-cyan); margin-bottom: 10px; }
+.contenedor h3 { font-size: 20px; color: var(--accent-purple); margin-top: 20px; }
+.contenedor p, .contenedor li { color: var(--white); font-size: 16px; line-height: 1.7; }
+.contenedor ul { margin-left: 20px; }
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 20px;
+  margin-top: 60px;
+}
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h4 { font-size: 18px; margin-bottom: 10px; }
+.footer-info a { color: #bbb; text-decoration: none; transition: 0.3s ease; }
+.footer-info a:hover { color: #00c853; }
+.footer p { margin-top: 8px; color: #bbb; font-size: 14px; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width:800px){ .contenedor{padding:28px;} nav ul{flex-direction:column; gap:12px;} }
+@media (max-width:480px){ .contenedor{padding:20px;} header h1{font-size:32px;} header p{font-size:16px;} }
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Clover Multicaps</h1>
-    <p>Tu estilo, nuestra inspiración.</p>
+<header>
+<h1>Clover Multicaps</h1>
+<p>Tu estilo, nuestra inspiración.</p>
 
-    <nav>
-      <ul>
-        <li style="display:inline-block; margin:0 10px;"><a href="index.html">Inicio</a></li>
-        <li style="display:inline-block; margin:0 10px;"><a href="Catalogo.html">Catálogo</a></li>
-        <li style="display:inline-block; margin:0 10px;"><a href="Información.html">Información</a></li>
-      </ul>
-    </nav>
-  </header>
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="Catalogo.html">Catálogo</a></li>
+<li><a href="Información.html">Información</a></li>
+</ul>
+</nav>
+</header>
 
-  <main>
-    <section class="contenedor" aria-labelledby="titulo-politicas">
-      <h2 id="titulo-politicas">Políticas de Devolución</h2>
+<main>
+<section class="contenedor" aria-labelledby="titulo-politicas">
+<h2 id="titulo-politicas">Políticas de Devolución</h2>
 
-      <p>En <strong>Clover Multicaps</strong> buscamos siempre entregar productos en perfecto estado y justo como los viste. Aun así, entendemos que pueden presentarse situaciones especiales.</p>
+<p>En <strong>Clover Multicaps</strong> buscamos siempre entregar productos en perfecto estado y justo como los viste. Aun así, entendemos que pueden presentarse situaciones especiales.</p>
 
-      <p>A continuación te explicamos cómo manejamos los cambios o devoluciones:</p>
+<p>A continuación te explicamos cómo manejamos los cambios o devoluciones:</p>
 
-      <h3>¿Cuándo puedo solicitar un cambio?</h3>
-      <ul>
-        <li>Si la gorra presenta un defecto de fábrica.</li>
-        <li>Si el modelo entregado no coincide con el pedido que realizaste.</li>
-      </ul>
+<h3>¿Cuándo puedo solicitar un cambio?</h3>
+<ul>
+<li>Si la gorra presenta un defecto de fábrica.</li>
+<li>Si el modelo entregado no coincide con el pedido que realizaste.</li>
+</ul>
+<p><strong>Importante:</strong> El cambio debe solicitarse dentro de los primeros <strong>3 días</strong> después de recoger tu pedido.</p>
 
-      <p><strong>Importante:</strong> El cambio debe solicitarse dentro de los primeros <strong>3 días</strong> después de recoger tu pedido.</p>
+<h3>Condiciones para aceptar un cambio</h3>
+<ul>
+<li>La gorra debe estar en excelente estado, sin uso.</li>
+<li>Debe incluir etiquetas o bolsas originales (si aplica).</li>
+<li>Debes presentar tu comprobante del pedido o conversación del acuerdo.</li>
+</ul>
 
-      <h3>Condiciones para aceptar un cambio</h3>
-      <ul>
-        <li>La gorra debe estar en excelente estado, sin uso.</li>
-        <li>Debe incluir etiquetas o bolsas originales (si aplica).</li>
-        <li>Debes presentar tu comprobante del pedido o conversación del acuerdo.</li>
-      </ul>
+<h3>Productos sin cambio</h3>
+<p>Por motivos de higiene, no realizamos cambios en:</p>
+<ul>
+<li>Gorras usadas o con señales de desgaste.</li>
+<li>Productos personalizados.</li>
+</ul>
 
-      <h3>Productos sin cambio</h3>
-      <p>Por motivos de higiene, no realizamos cambios en:</p>
-      <ul>
-        <li>Gorras usadas o con señales de desgaste.</li>
-        <li>Productos personalizados.</li>
-      </ul>
+<h3>¿Hacemos devoluciones de dinero?</h3>
+<p>Sí, podemos hacer devolución de dinero siempre y cuando el producto se regrese en las mismas condiciones en las que fue entregado y dentro de los primeros <strong>3 días</strong> después de recoger tu pedido.</p>
+<p>La devolución se realiza por el mismo método de pago que utilizaste (efectivo o transferencia).</p>
 
-      <h3>¿Hacemos devoluciones de dinero?</h3>
-      <p>Sí, podemos hacer devolución de dinero siempre y cuando el producto se regrese en las mismas condiciones en las que fue entregado y dentro de los primeros <strong>3 días</strong> después de recoger tu pedido.</p>
-      <p>La devolución se realiza por el mismo método de pago que utilizaste (efectivo o transferencia).</p>
+<h3>¿Cómo solicitar un cambio o devolución?</h3>
+<p>Puedes contactarnos por Facebook, Instagram o WhatsApp. Te atenderemos lo más rápido posible para ayudarte a resolverlo.</p>
+</section>
+</main>
 
-      <h3>¿Cómo solicitar un cambio o devolución?</h3>
-      <p>Puedes contactarnos por Facebook, Instagram o WhatsApp. Te atenderemos lo más rápido posible para ayudarte a resolverlo.</p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-contenedor" style="max-width:1200px; margin: 0 auto; padding: 30px 20px; display:flex; justify-content:space-between; flex-wrap:wrap;">
-      <div class="footer-info">
-        <ul style="list-style:none; color:#bbb;">
-          <li style="margin-bottom:8px;"><a href="PreguntasFrecuentes.html" style="color:#bbb; text-decoration:none;">Preguntas Frecuentes</a></li>
-          <li><a href="Devoluciones.html" style="color:#bbb; text-decoration:none;">Políticas de Devolución</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-redes">
-        <h4 style="color:#fff; margin-bottom:8px;">SÍGUENOS</h4>
-        <div class="iconos" style="display:flex; gap:10px;">
-          <a href="https://www.facebook.com/clovermulticaps.mty" target="_blank" rel="noopener">
-            <img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30" alt="Facebook">
-          </a>
-          <a href="https://www.instagram.com/clover_multicaps4/" target="_blank" rel="noopener">
-            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30" alt="Instagram">
-          </a>
-          <a href="https://www.tiktok.com/@clover.multicaps" target="_blank" rel="noopener">
-            <img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30" alt="TikTok">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center; padding:14px 0; background:#000; color:#fff; margin-top:18px;">© 2025 • Clover Multicaps</div>
-  </footer>
+<footer class="footer">
+<div class="footer-contenedor">
+<div class="footer-info">
+<ul style="list-style:none;">
+<li><a href="PreguntasFrecuentes.html">Preguntas Frecuentes</a></li>
+<li><a href="Devoluciones.html">Políticas de Devolución</a></li>
+</ul>
+</div>
+<div class="footer-redes">
+<h4>SÍGUENOS</h4>
+<div class="iconos" style="display:flex; gap:10px;">
+<a href="https://www.facebook.com/clovermulticaps.mty" target="_blank" rel="noopener">
+<img src="https://cdn-icons-png.flaticon.com/24/145/145802.png" width="30" alt="Facebook">
+</a>
+<a href="https://www.instagram.com/clover_multicaps4/" target="_blank" rel="noopener">
+<img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="30" alt="Instagram">
+</a>
+<a href="https://www.tiktok.com/@clover.multicaps" target="_blank" rel="noopener">
+<img src="https://cdn-icons-png.flaticon.com/24/3046/3046124.png" width="30" alt="TikTok">
+</a>
+</div>
+</div>
+</div>
+<div style="text-align:center; padding:14px 0; background:#000; color:#fff; margin-top:18px;">© 2025 • Clover Multicaps</div>
+</footer>
 
 </body>
 </html>
