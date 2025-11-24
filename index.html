@@ -82,7 +82,8 @@
         <p class="modal-precio">Precio: <span id="modalPrecio"></span></p>
         <p id="modalStock"></p>
         <div class="modal-acciones">
-          <input type="number" id="cantidad" value="1" min="1">
+          <!-- min="1" y step="1" para ayudar al navegador a restringir valores -->
+          <input type="number" id="cantidad" value="1" min="1" step="1">
           <button id="btnAgregar">Agregar al Carrito</button>
         </div>
       </div>
@@ -181,12 +182,32 @@ cerrarModalBtn.onclick = function(){ modal.style.display = 'none'; }
 window.onclick = function(e){ if(e.target==modal) modal.style.display='none'; }
 window.onkeydown = function(e){ if(e.key==='Escape') modal.style.display='none'; }
 
+// --- Prevención en tiempo real: no permitir 0 ni negativos ni decimales ---
+cantidadEl.addEventListener('input', function(){
+  // convertir a entero
+  var val = parseInt(this.value, 10);
+  if(isNaN(val) || val < 1){
+    // si escriben 0, negativo o nada, lo corregimos a 1 sin spam de alert
+    this.value = 1;
+  } else {
+    // mantener solo la parte entera (evita decimales)
+    this.value = Math.floor(val);
+  }
+});
+
 // --- Agregar al carrito ---
 btnAgregar.onclick = function(){
   var idx = modal.dataset.index;
   var prod = productos[idx];
   var stock = Number(prod.dataset.stock);
+
+  // validar cantidad: entero y >= 1
   var cantidad = Number(cantidadEl.value);
+  if(!Number.isFinite(cantidad) || !Number.isInteger(cantidad) || cantidad < 1){
+    alert('La cantidad debe ser un número entero y al menos 1');
+    cantidadEl.value = 1;
+    return;
+  }
 
   if(cantidad > stock){
     alert('No hay suficiente stock');
