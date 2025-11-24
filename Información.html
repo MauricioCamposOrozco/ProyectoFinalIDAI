@@ -4,11 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información</title>
- <link rel="stylesheet" href="style-informacion.css">
+    <link rel="stylesheet" href="style-informacion.css">
+    <style>
+        /* ---------------- IMÁGENES POR QUÉ ---------------- */
+.por-que {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.por-que .item {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    padding: 15px;
+}
+
+.por-que .item img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 12px;
+    filter: drop-shadow(0 0 6px #6a3fe2) drop-shadow(0 0 12px #00E5FF);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.por-que .item img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px #6a3fe2) drop-shadow(0 0 20px #00E5FF);
+}
+
+.por-que h4 {
+    color: #ffffff;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.por-que p {
+    color: #f0f0f0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .por-que .item img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .por-que {
+        flex-direction: column;
+        align-items: center;
+    }
+    .por-que .item img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+
+        /* IFRAME RESPONSIVE */
+        .contenido iframe {
+            width: 100%;
+            height: 320px;
+            border: 0;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        /* LIMITE GENERAL PARA TODAS LAS IMÁGENES */
+        .contenido img {
+            max-width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        /* OPCIONAL: centrado y margen para los items */
+        .por-que .item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-     <header>
+    <header>
         <h1>Información</h1>
         <nav>
             <a href="index.html">Inicio</a> |
@@ -62,7 +149,7 @@
 
         <div class="seccion">
             <h2>Encuéntranos</h2>
-            <p>📍 <strong>Av. Puerta de Hierro 526, 64349 Monterrey, N.L.</strong></p>
+            <p> <strong>Av. Puerta de Hierro 526, 64349 Monterrey, N.L.</strong></p>
             <p>Visítanos en nuestra sucursal para conocer nuestras colecciones en persona. También participamos en eventos y exhibiciones dentro de la ciudad.</p>
             <iframe 
                 src="https://www.google.com/maps?q=Av.+Puerta+de+Hierro+526,+64349+Monterrey,+N.L.&output=embed" 
