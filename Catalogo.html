@@ -9,6 +9,8 @@
     /* ajustes menores para catálogo */
     .catalogo-titulo { text-align:center; margin:36px 0 18px; font-size:28px; color:#222; font-weight:700; }
     .producto-lista { max-width:1200px; margin:0 auto; }
+    /* pequeño estilo para inputs del recibo */
+    #recibo input { display:block; width:100%; max-width:360px; padding:10px; margin:8px 0; border-radius:8px; border:1px solid rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
@@ -32,7 +34,6 @@
     <div class="producto-lista">
 
       <!-- Gorras del catálogo-->
-
       <div class="producto" data-precio="3300" data-stock="5">
         <img src="imagenes-proyecto/Gorra jordan negra.jpg" alt="Gorra Jordan Negra">
         <h3>Gorra Jordan Negra</h3>
@@ -105,8 +106,6 @@
         <p>Materiales de alta calidad y adiamantado</p>
       </div>
 
-     
-
       <div class="producto" data-precio="2099" data-stock="5">
         <img src="imagenes-proyecto/gorra alo.webp" alt="Gorra alo Negra">
         <h3>Gorra alo Negra</h3>
@@ -172,6 +171,10 @@
   <h3>Recibo</h3>
   <ul id="rLista"></ul>
   <p class="recibo-total"><strong>Total:</strong> <span id="rTotal">$0.00</span></p>
+
+  <!-- AÑADIDO: campo Nombre -->
+  <input type="text" id="nombre" placeholder="Tu nombre">
+
   <input type="tel" id="telefono" placeholder="Número telefónico">
   <button id="enviarBtn">Enviar recibo</button>
   <button id="vaciarBtn" class="vaciar">Vaciar carrito</button>
@@ -314,13 +317,18 @@ document.getElementById('vaciarBtn').onclick = function () {
   actualizarRecibo();
 };
 
-/* enviar por WhatsApp */
+/* enviar por WhatsApp (AHORA INCLUYE NOMBRE) */
 document.getElementById('enviarBtn').onclick = function () {
+  var nombre = (document.getElementById('nombre') ? document.getElementById('nombre').value.trim() : '');
   var tel = document.getElementById('telefono').value.replace(/\D/g, '');
+
+  if (!nombre || nombre.length === 0) { alert('Ingresa tu nombre'); return; }
   if (tel.length < 10) { alert('Número inválido'); return; }
   if (carrito.length === 0) { alert('Carrito vacío'); return; }
 
   var mensaje = 'Recibo Clover Multicaps\n';
+  mensaje += 'Nombre: ' + nombre + '\n\n';
+
   var total = 0;
   for (var i = 0; i < carrito.length; i++) {
     var it = carrito[i];
@@ -328,7 +336,10 @@ document.getElementById('enviarBtn').onclick = function () {
     total += subtotal;
     mensaje += it.cantidad + ' x ' + it.nombre + ' = $' + subtotal.toFixed(2) + '\n';
   }
-  mensaje += '\nTotal: $' + total.toFixed(2) + '\n¡Gracias por tu compra!';
+  mensaje += '\nTotal: $' + total.toFixed(2) + '\n\n';
+  mensaje += '¡Gracias por tu compra!\n';
+  mensaje += 'RECOGE TU PEDIDO EN LA TIENDA EN FÍSICO';
+
   window.open('https://wa.me/52' + tel + '?text=' + encodeURIComponent(mensaje), '_blank');
 };
 </script>

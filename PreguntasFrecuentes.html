@@ -1,446 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Preguntas Frecuentes - Clover Multicaps</title>
-
-  <style>
-  /* ---------------- VARIABLES GENERALES ---------------- */
-  :root{
-  /* colores principales */
-  --bg-light: #f0f2f5;
-  --text-dark: #111217;
-  --muted: #6b7280;
-  --white: #ffffff;
-
-  /* fondos oscuros */
-  --bg-dark-1: #0b0f1a;
-  --bg-dark-2: #101426;
-
-  /* capas y paneles */
-  --panel: rgba(255,255,255,0.02);
-
-  /* acentos */
-  --accent-purple: #6a3fe2;
-  --accent-red: #D7263D;
-  --accent-green: #2ecc71;
-  --accent-cyan: #00E5FF;
-  --gold: #E6A800;
-
-  /* curvas y sombras */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --shadow-soft: 0 6px 25px rgba(0,0,0,0.12);
-  --shadow-strong: 0 26px 80px rgba(5,6,15,0.45);
-
-  /* tiempos */
-  --t-fast: 220ms;
-  --t-base: 320ms;
-  }
-
-  /* ---------------- reset básico ---------------- */
-
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-  html, body { height: 100%; }
-
-  /* ---------------- fondo general ---------------- */
-  body {
-  background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
-  color: var(--white);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.45;
-  padding-bottom: 30px;
-  }
-
-  /* ---------------- contenedor principal ---------------- */
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-  .u-center { text-align: center; }
-
-  /* ---------------- HEADER ---------------- */
-  header {
-  background: linear-gradient(135deg, #000 0%, var(--accent-purple) 60%);
-  color: var(--white);
-  padding: 40px 20px;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  box-shadow: var(--shadow-strong);
-  position: relative;
-  border-bottom: 3px solid rgba(255,255,255,0.03);
-  }
-
-  header::after {
-  content: "";
-  position: absolute;
-  right: -10%;
-  top: -20%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 30%), radial-gradient(circle at 70% 70%, rgba(0,229,255,0.03), transparent 30%);
-  transform: rotate(12deg);
-  pointer-events: none;
-  opacity: 0.6;
-  }
-
-  /* efecto neón base (animado) */
-  .neon {
-    color: var(--white) !important;
-    text-shadow:
-      0 0 6px rgba(106,63,226,0.95),
-      0 0 18px rgba(106,63,226,0.55),
-      0 0 32px rgba(0,229,255,0.18),
-      0 8px 40px rgba(0,0,0,0.6);
-    transition: text-shadow var(--t-base), transform var(--t-base);
-  }
-
-  /* pulso suave del neón */
-  @keyframes neonPulse {
-    0% { text-shadow: 0 0 6px rgba(106,63,226,0.9), 0 0 18px rgba(106,63,226,0.5), 0 0 28px rgba(0,229,255,0.12); transform: translateY(0); }
-    50% { text-shadow: 0 0 10px rgba(106,63,226,1), 0 0 26px rgba(106,63,226,0.7), 0 0 42px rgba(0,229,255,0.2); transform: translateY(-2px); }
-    100% { text-shadow: 0 0 6px rgba(106,63,226,0.9), 0 0 18px rgba(106,63,226,0.5), 0 0 28px rgba(0,229,255,0.12); transform: translateY(0); }
-  }
-
-  .neon.animated { animation: neonPulse 2.6s infinite ease-in-out; }
-
-  header h1 {
-  font-size: 45px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 10px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
-  }
-
-  header p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: var(--white);
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  }
-
-  /* ---------------- NAV ---------------- */
-  nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  gap: 30px;
-  padding: 0;
-  }
-
-  nav a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: transform var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
-  }
-
-  nav a:hover { color: var(--accent-red); transform: translateY(-4px); box-shadow: 0 8px 26px rgba(215,38,61,0.06); }
-
-  /* ---------------- SECCION PRINCIPAL ---------------- */
-  main { padding: 60px 20px; }
-
-  /* tarjeta de contenido (sustituye contenedor blanco) */
-  .panel {
-  text-align: left;
-  max-width: 900px;
-  margin: 50px auto;
-  animation: fadeUp 900ms ease-in-out;
-  padding: 30px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255,255,255,0.03);
-  }
-
-  .pregunta { margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.03); }
-
-  .pregunta h3 {
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--white);
-  margin-bottom: 8px;
-  }
-
-  /* aplicamos neón a los títulos de pregunta */
-  .pregunta h3.neon { color: var(--white); }
-
-  .pregunta p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--white); /* texto principal en blanco */
-  font-weight: 700;
-  }
-
-  /* ---------------- CONTACTO ---------------- */
-  .contacto { margin-top: 30px; padding-top: 18px; border-top: 2px dotted rgba(255,255,255,0.03); }
-  .contacto h3 { font-size: 22px; color: var(--white); margin-bottom: 12px; }
-
-  .form-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-  .form-row .campo { flex: 1; min-width: 200px; }
-
-  /* ---------------- INPUTS GENERALES ---------------- */
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
-  width: 100%;
-  padding: 14px 16px;
-  background: #1a1a1a;
-  border: 2px solid #8b0000;
-  color: #f8f8f8;
-  border-radius: 10px;
-  margin: 12px 0;
-  font-size: 16px;
-  transition: 0.3s ease;
-  outline: none;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-  }
-
-  input:hover, textarea:hover { border-color: #b30000; }
-
-  input:focus, textarea:focus {
-  border-color: #ffdf7e;
-  box-shadow: 0 0 12px rgba(255,223,126,0.5);
-  background: #262626;
-  }
-
-  input::placeholder,
-  textarea::placeholder { color: #b8b8b8; font-style: italic; }
-
-  .botones {
-  margin-top: 10px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  }
-
-  button.enviar {
-  background: linear-gradient(90deg,var(--accent-purple),#6a7bff);
-  color: var(--white);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 800;
-  box-shadow: 0 6px 18px rgba(102,87,231,0.18);
-  transition: transform .12s ease;
-  }
-
-  button.enviar:hover { transform: translateY(-3px); }
-
-  button.limpiar {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 9px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #ddd;
-  }
-
-  #cfStatus {
-  margin-left: 8px;
-  font-size: 14px;
-  }
-
-  /* FOOTER */
-  footer.footer {
-  margin-top: 60px;
-  background: #000;
-  padding: 25px 0;
-  color: #fff;
-  font-size: 14px;
-  border-top: 1px solid rgba(255,255,255,0.03);
-  }
-
-  footer.footer p { margin: 0; color: #bbb; }
-
-  /* animaciones y responsive */
-  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width:600px){
-    header h1 { font-size: 32px; }
-    .panel { margin: 20px; padding: 20px; }
-    nav ul { gap: 12px; flex-wrap: wrap; }
-  }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Preguntas Frecuentes - Clover Multicaps</title>
+<style>
+/* (omito el CSS por brevedad — usa tu CSS actual) */
+header .logo-small { width:36px; height:36px; object-fit:cover; margin-left:12px; vertical-align:middle; border-radius:6px;}
+/* añade más estilos según necesites */
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container u-center">
-      <h1 class="neon animated">Preguntas Frecuentes</h1>
-      <!-- subtítulo opcional -->
-      <p>Calidad, estilo y atención rápida</p>
+<header>
+  <div class="container u-center">
+    <h1 class="neon animated">Preguntas Frecuentes</h1>
+    <p>Calidad, estilo y atención rápida</p>
 
-      <nav aria-label="Menú principal">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="Catalogo.html">Catálogo</a></li>
-          <li><a href="Información.html">Información</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- muestra la imagen que subiste -->
+    <img src="/mnt/data/e3f35b63-931e-4438-81b1-2873d9eb5e3b.png" alt="logo" class="logo-small">
 
-  <main>
-    <div class="container">
-      <section class="panel">
+    <nav aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="informacion.html">Información</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-        <div class="pregunta">
-          <h3 class="neon">¿Cómo puedo recoger mi pedido?</h3>
-          <p>Después de hacer tu pedido, te confirmamos la hora aproximada para recogerlo. Solo vienes, das tu nombre y listo.</p>
-        </div>
+<main>
+  <div class="container">
+    <section class="panel">
+      <!-- preguntas... -->
 
-        <div class="pregunta">
-          <h3 class="neon">¿Tienen productos disponibles todos los días?</h3>
-          <p>Sí, aunque algunos se agotan rápido. Puedes escribirnos para confirmar disponibilidad.</p>
-        </div>
+      <div class="contacto" id="contacto">
+        <h3 class="neon">Envíanos un comentario</h3>
 
-        <div class="pregunta">
-          <h3 class="neon">¿Aceptan pagos con tarjeta?</h3>
-          <p>Por ahora solo efectivo o transferencia. Pronto tendremos terminal.</p>
-        </div>
+        <!-- Agregué atributos data-emailjs-* opcionales:
+             Si vas a usar EmailJS, pon aquí tus IDs.
+             Si no, déjalos vacíos y se usará FormSubmit AJAX -->
+        <form id="contactForm"
+              action="https://formsubmit.co/al45093@un.edu.mx"
+              method="POST"
+              novalidate
+              data-emailjs-service=""       <!-- ej: service_xxx -->
+              data-emailjs-template=""      <!-- ej: template_xxx -->
+              data-emailjs-user="">         <!-- ej: user_xxx / public key -->
+          <input type="hidden" name="_captcha" value="false">
 
-        <div class="pregunta">
-          <h3 class="neon">¿Puedo hacer un pedido especial?</h3>
-          <p>Sí, solo hazlo con anticipación para prepararlo con tiempo.</p>
-        </div>
-
-        <div class="pregunta">
-          <h3 class="neon">¿Cuál es su horario?</h3>
-          <p>Lunes a sábado: 10:00 am – 7:00 pm. Domingo: entregas programadas.</p>
-        </div>
-
-        <div class="pregunta">
-          <h3 class="neon">¿Cómo puedo comunicarme con ustedes?</h3>
-          <p>Por Instagram, Facebook o TikTok. Respondemos rápido.</p>
-        </div>
-
-        <!-- CONTACTO -->
-        <div class="contacto" id="contacto">
-          <h3 class="neon">Envíanos un comentario</h3>
-
-          <!-- FORMULARIO: enviará por FormSubmit, pero manejamos el envío con fetch para mostrar confirmación en la misma página -->
-          <form id="contactForm" action="https://formsubmit.co/al45093@un.edu.mx" method="POST" novalidate>
-            <!-- evita spam -->
-            <input type="hidden" name="_captcha" value="false">
-
-            <div class="form-row">
-              <div class="campo">
-                <label for="cfNombre">Nombre</label>
-                <input type="text" id="cfNombre" name="Nombre" required placeholder="Tu nombre completo">
-              </div>
-
-              <div class="campo">
-                <label for="cfEmail">Correo electrónico</label>
-                <input type="email" id="cfEmail" name="Correo" required placeholder="tu@correo.com">
-              </div>
+          <div class="form-row">
+            <div class="campo">
+              <label for="cfNombre">Nombre</label>
+              <input type="text" id="cfNombre" name="Nombre" required placeholder="Tu nombre completo">
             </div>
 
-            <div class="form-row">
-              <div class="campo">
-                <label for="cfTelefono">Teléfono</label>
-                <input type="tel" id="cfTelefono" name="Teléfono" placeholder="(55) 1234 5678">
-              </div>
+            <div class="campo">
+              <label for="cfEmail">Correo electrónico</label>
+              <input type="email" id="cfEmail" name="Correo" required placeholder="tu@correo.com">
             </div>
+          </div>
 
-            <div>
-              <label for="cfMensaje">Mensaje</label>
-              <textarea id="cfMensaje" name="Mensaje" required placeholder="Escribe tu comentario"></textarea>
+          <div class="form-row">
+            <div class="campo">
+              <label for="cfTelefono">Teléfono</label>
+              <input type="tel" id="cfTelefono" name="Telefono" placeholder="(55) 1234 5678">
             </div>
+          </div>
 
-            <div class="botones">
-              <button type="submit" class="enviar">Enviar comentario</button>
-              <button type="reset" class="limpiar">Limpiar</button>
-            </div>
+          <div>
+            <label for="cfMensaje">Mensaje</label>
+            <textarea id="cfMensaje" name="Mensaje" required placeholder="Escribe tu comentario"></textarea>
+          </div>
 
-            <p id="cfStatus" aria-live="polite" style="margin-top:10px;"></p>
-          </form>
+          <div class="botones" style="margin-top:12px;">
+            <button type="submit" class="enviar">Enviar comentario</button>
+            <button type="button" id="whatsapp-send-button" class="enviar" style="background:#25D366; margin-left:6px;">Enviar también por WhatsApp</button>
+            <button type="reset" class="limpiar">Limpiar</button>
+          </div>
 
-        </div>
+          <p id="cfStatus" aria-live="polite" style="margin-top:10px;"></p>
+        </form>
+      </div>
 
-      </section>
-    </div>
-  </main>
+    </section>
+  </div>
+</main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 • Clover Multicaps</p>
-    </div>
-  </footer>
+<footer class="footer"><div class="container"><p>© 2025 • Clover Multicaps</p></div></footer>
 
-  <script>
-  // Envío con fetch a FormSubmit y mensaje en la misma página
-  (function(){
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('cfStatus');
+<!-- EMAILJS SDK (opcional). Si usas EmailJS déjalo; si no, no afecta. -->
+<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
 
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
+<script>
+/*
+  Lógica combinada:
+  - Si completas data-emailjs-* en el formulario, el script intentará enviar por EmailJS.
+  - Si no están, usará FormSubmit AJAX (https://formsubmit.co/tu_email/ajax).
+  - En ambos casos, si el envío fue OK, abre WhatsApp (wa.me) con el mensaje prellenado.
+  - El botón 'Enviar también por WhatsApp' abre wa.me directamente (igual que tu ejemplo).
+*/
 
-      // validaciones sencillas (cliente)
-      const nombre = document.getElementById('cfNombre').value.trim();
-      const correo = document.getElementById('cfEmail').value.trim();
-      const msg = document.getElementById('cfMensaje').value.trim();
+/* --- helpers --- */
+function validateEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-      if(nombre.length < 2){
-        status.textContent = "Nombre inválido.";
-        status.style.color = "#d32f2f";
-        return;
-      }
+/* --- configuración WhatsApp --- */
+// Cambia aquí si quieres otro número (formato: código pais + número, sin +)
+const WHATSAPP_PHONE = '5218187068768'; // tu número México (+52) 8187068768 -> 5218187068768
 
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)){
-        status.textContent = "Correo inválido.";
-        status.style.color = "#d32f2f";
-        return;
-      }
+/* --- DOM --- */
+const form = document.getElementById('contactForm');
+const status = document.getElementById('cfStatus');
+const waBtn = document.getElementById('whatsapp-send-button');
 
-      if(msg.length < 5){
-        status.textContent = "El mensaje es demasiado corto.";
-        status.style.color = "#d32f2f";
-        return;
-      }
+/* lee atributos data-emailjs del form (vacíos = no usar EmailJS) */
+const EMAILJS_SERVICE = form.dataset.emailjsService || '';
+const EMAILJS_TEMPLATE = form.dataset.emailjsTemplate || '';
+const EMAILJS_USER = form.dataset.emailjsUser || '';
 
-      status.textContent = "Enviando...";
-      status.style.color = "#fff";
+/* inicializa EmailJS si se configuró user */
+if (EMAILJS_USER && window.emailjs) {
+  try { emailjs.init(EMAILJS_USER); } catch(e){ console.warn('EmailJS init falló', e); }
+}
 
-      const formData = new FormData(form);
+/* función que construye mensaje para WhatsApp */
+function buildWaText(nombre, correo, telefono, mensaje){
+  return `Nuevo mensaje desde Preguntas Frecuentes - Clover Multicaps
+Nombre: ${nombre}
+Correo: ${correo}
+Teléfono: ${telefono}
+Mensaje: ${mensaje}`;
+}
 
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          mode: 'cors',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
+/* botón: enviar también por WhatsApp (similar a tu script original) */
+waBtn.addEventListener('click', function(){
+  const nombre = document.getElementById('cfNombre').value.trim();
+  const correo = document.getElementById('cfEmail').value.trim();
+  const mensaje = document.getElementById('cfMensaje').value.trim();
 
-        if (response.ok) {
-          status.textContent = "¡Gracias! Tu mensaje ha sido enviado ✔";
-          status.style.color = "#2ecc71";
-          form.reset();
-        } else {
-          status.textContent = "Error al enviar. Intenta de nuevo.";
-          status.style.color = "#D7263D";
-        }
-      } catch (err) {
-        status.textContent = "Error de conexión. Intenta más tarde.";
-        status.style.color = "#D7263D";
-      }
+  if (!nombre || !correo || !mensaje) {
+    alert('Por favor, completa Nombre, Email y Mensaje antes de continuar a WhatsApp.');
+    return;
+  }
+  const texto = buildWaText(nombre, correo, '', mensaje);
+  const url = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(texto);
+  window.open(url, '_blank');
+});
+
+/* handler del form: intenta EmailJS -> fallback AJAX FormSubmit */
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  const nombre = document.getElementById('cfNombre').value.trim();
+  const correo = document.getElementById('cfEmail').value.trim();
+  const telefono = document.getElementById('cfTelefono').value.trim();
+  const mensaje = document.getElementById('cfMensaje').value.trim();
+
+  // validaciones simples
+  if(nombre.length < 2){ status.textContent='Nombre inválido.'; status.style.color='#d32f2f'; return; }
+  if(!validateEmail(correo)){ status.textContent='Correo inválido.'; status.style.color='#d32f2f'; return; }
+  if(mensaje.length < 5){ status.textContent='El mensaje es demasiado corto.'; status.style.color='#d32f2f'; return; }
+
+  status.textContent = 'Enviando...';
+  status.style.color = '#fff';
+
+  // preparar la URL de WhatsApp antes (evitar bloqueo de popup)
+  const waText = buildWaText(nombre, correo, telefono, mensaje);
+  const waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(waText);
+  let waWindow = null;
+  try { waWindow = window.open('', '_blank'); } catch(err) { waWindow = null; }
+
+  // Si EmailJS está configurado, intentar ese envío primero
+  if (EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_USER && window.emailjs) {
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, form);
+      status.textContent = '¡Enviado por EmailJS! ✔';
+      status.style.color = '#2ecc71';
+      form.reset();
+      if (waWindow) { try { waWindow.location = waUrl; } catch(e){ window.open(waUrl, '_blank'); } }
+      else { window.open(waUrl, '_blank'); }
+      return;
+    } catch (err) {
+      console.warn('EmailJS fallo, intentar FormSubmit AJAX', err);
+      // continuar al fallback
+    }
+  }
+
+  // Fallback: FormSubmit AJAX (asegúrate de haber verificado tu correo con FormSubmit)
+  try {
+    const ajaxUrl = form.action.replace(/\/?$/, '') + '/ajax';
+    const formData = new FormData(form);
+    const resp = await fetch(ajaxUrl, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     });
-  })();
-  </script>
 
+    if (resp.ok) {
+      status.textContent = '¡Gracias! Tu mensaje ha sido enviado ✔';
+      status.style.color = '#2ecc71';
+      form.reset();
+      if (waWindow) { try { waWindow.location = waUrl; } catch(e){ window.open(waUrl, '_blank'); } }
+      else { window.open(waUrl, '_blank'); }
+    } else {
+      const data = await resp.json().catch(()=>null);
+      console.error('FormSubmit error', resp.status, data);
+      status.textContent = 'Error al enviar (FormSubmit). Revisa tu correo o configura EmailJS.';
+      status.style.color = '#D7263D';
+      // opcional: abrir WhatsApp aunque falló el envío de email
+      if (confirm('No se pudo enviar el correo. ¿Deseas abrir WhatsApp para enviar el mensaje manualmente?')) {
+        window.open(waUrl, '_blank');
+      }
+    }
+  } catch (err) {
+    console.error('Fetch error', err);
+    status.textContent = 'Error de conexión. Intenta más tarde.';
+    status.style.color = '#D7263D';
+    if (confirm('Error de conexión. ¿Quieres abrir WhatsApp para enviar el mensaje manualmente?')) {
+      window.open(waUrl, '_blank');
+    }
+  }
+});
+
+/* --- Opcional: mobile menu logic (defensivo si no existe el botón) --- */
+const mobileBtn = document.getElementById('mobile-menu-button');
+if (mobileBtn) {
+  mobileBtn.addEventListener('click', function(){
+    const menu = document.getElementById('mobile-menu');
+    if(menu) menu.classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(item => {
+    item.addEventListener('click', ()=> {
+      const menu = document.getElementById('mobile-menu');
+      if(menu) menu.classList.add('hidden');
+    });
+  });
+}
+</script>
 </body>
 </html>
