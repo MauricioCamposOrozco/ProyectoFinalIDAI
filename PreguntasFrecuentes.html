@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Preguntas Frecuentes - Clover Multicaps</title>
 <style>
-  /* ---------------- VARIABLES GENERALES ---------------- */
   :root{
     --bg-light: #f0f2f5;
     --text-dark: #111217;
@@ -27,11 +26,9 @@
     --t-base: 320ms;
   }
 
-  /* ---------------- reset básico ---------------- */
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
   html, body { height: 100%; }
 
-  /* ---------------- fondo general ---------------- */
   body {
     background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
     color: var(--white);
@@ -42,18 +39,14 @@
     padding-bottom: 30px;
   }
 
-  /* ---------------- contenedor principal ---------------- */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .u-center { text-align: center; }
 
-  /* ---------------- HEADER ---------------- */
   header {
     background: linear-gradient(135deg, #000 0%, var(--accent-purple) 60%);
     color: var(--white);
     padding: 40px 20px;
     text-align: center;
-    background-size: cover;
-    background-position: center;
     box-shadow: var(--shadow-strong);
     position: relative;
     border-bottom: 3px solid rgba(255,255,255,0.03);
@@ -110,7 +103,6 @@
     text-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
 
-  /* ---------------- NAV ---------------- */
   nav ul {
     list-style: none;
     display: flex;
@@ -132,7 +124,6 @@
 
   nav a:hover { color: var(--accent-red); transform: translateY(-4px); box-shadow: 0 8px 26px rgba(215,38,61,0.06); }
 
-  /* ---------------- SECCION PRINCIPAL ---------------- */
   main { padding: 60px 20px; }
 
   .panel {
@@ -163,18 +154,15 @@
     font-weight: 700;
   }
 
-  /* ---------------- CONTACTO ---------------- */
   .contacto { margin-top: 30px; padding-top: 18px; border-top: 2px dotted rgba(255,255,255,0.03); }
   .contacto h3 { font-size: 22px; color: var(--white); margin-bottom: 12px; }
 
   .form-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
   .form-row .campo { flex: 1; min-width: 200px; }
 
-  /* ---------------- INPUTS GENERALES ---------------- */
   input[type="text"],
   input[type="number"],
   input[type="email"],
-  input[type="tel"],
   textarea {
     width: 100%;
     padding: 14px 16px;
@@ -230,12 +218,8 @@
     color: #ddd;
   }
 
-  #cfStatus {
-    margin-left: 8px;
-    font-size: 14px;
-  }
+  #cfStatus { margin-left: 8px; font-size: 14px; }
 
-  /* FOOTER */
   footer.footer {
     margin-top: 60px;
     background: #000;
@@ -299,13 +283,6 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="campo">
-              <label for="cfTelefono">Teléfono</label>
-              <input type="tel" id="cfTelefono" name="Telefono" placeholder="(55) 1234 5678">
-            </div>
-          </div>
-
           <div>
             <label for="cfMensaje">Mensaje</label>
             <textarea id="cfMensaje" name="Mensaje" required placeholder="Escribe tu comentario"></textarea>
@@ -328,30 +305,23 @@
 <footer class="footer"><div class="container"><p>© 2025 • Clover Multicaps</p></div></footer>
 
 <script>
-/* Lógica simplificada:
-   - Validación básica en cliente
-   - Envío por FormSubmit (AJAX)
-   - Abre WhatsApp con el mensaje prellenado si el usuario acepta/usa el botón
-*/
+/* Validación básica y envío por FormSubmit; WhatsApp abre con los campos disponibles */
 
-/* --- helpers --- */
 function validateEmail(email){
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-/* --- configuración WhatsApp --- */
-const WHATSAPP_PHONE = '5218187068768'; // formato: código país + número (ej. 52 para México)
+/* Número WhatsApp (código país + número) */
+const WHATSAPP_PHONE = '5218187068768';
 
-/* --- DOM --- */
 const form = document.getElementById('contactForm');
 const status = document.getElementById('cfStatus');
 const waBtn = document.getElementById('whatsapp-send-button');
 
-function buildWaText(nombre, correo, telefono, mensaje){
+function buildWaText(nombre, correo, mensaje){
   return `Nuevo mensaje desde Preguntas Frecuentes - Clover Multicaps
 Nombre: ${nombre}
 Correo: ${correo}
-Teléfono: ${telefono}
 Mensaje: ${mensaje}`;
 }
 
@@ -365,7 +335,7 @@ waBtn.addEventListener('click', function(){
     alert('Por favor, completa Nombre, Email y Mensaje antes de continuar a WhatsApp.');
     return;
   }
-  const texto = buildWaText(nombre, correo, '', mensaje);
+  const texto = buildWaText(nombre, correo, mensaje);
   const url = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(texto);
   window.open(url, '_blank');
 });
@@ -376,7 +346,6 @@ form.addEventListener('submit', async function(e){
 
   const nombre = document.getElementById('cfNombre').value.trim();
   const correo = document.getElementById('cfEmail').value.trim();
-  const telefono = document.getElementById('cfTelefono').value.trim();
   const mensaje = document.getElementById('cfMensaje').value.trim();
 
   if(nombre.length < 2){ status.textContent='Nombre inválido.'; status.style.color='#d32f2f'; return; }
@@ -386,7 +355,7 @@ form.addEventListener('submit', async function(e){
   status.textContent = 'Enviando...';
   status.style.color = '#fff';
 
-  const waText = buildWaText(nombre, correo, telefono, mensaje);
+  const waText = buildWaText(nombre, correo, mensaje);
   const waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(waText);
   let waWindow = null;
   try { waWindow = window.open('', '_blank'); } catch(err) { waWindow = null; }
@@ -425,21 +394,6 @@ form.addEventListener('submit', async function(e){
     }
   }
 });
-
-/* Mobile menu logic defensivo (si existe) */
-const mobileBtn = document.getElementById('mobile-menu-button');
-if (mobileBtn) {
-  mobileBtn.addEventListener('click', function(){
-    const menu = document.getElementById('mobile-menu');
-    if(menu) menu.classList.toggle('hidden');
-  });
-  document.querySelectorAll('#mobile-menu a').forEach(item => {
-    item.addEventListener('click', ()=> {
-      const menu = document.getElementById('mobile-menu');
-      if(menu) menu.classList.add('hidden');
-    });
-  });
-}
 </script>
 </body>
 </html>
