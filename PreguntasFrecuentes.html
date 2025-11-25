@@ -5,9 +5,255 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Preguntas Frecuentes - Clover Multicaps</title>
 <style>
-/* (omito el CSS por brevedad — usa tu CSS actual) */
-header .logo-small { width:36px; height:36px; object-fit:cover; margin-left:12px; vertical-align:middle; border-radius:6px;}
-/* añade más estilos según necesites */
+  /* ---------------- VARIABLES GENERALES ---------------- */
+  :root{
+    --bg-light: #f0f2f5;
+    --text-dark: #111217;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --bg-dark-1: #0b0f1a;
+    --bg-dark-2: #101426;
+    --panel: rgba(255,255,255,0.02);
+    --accent-purple: #6a3fe2;
+    --accent-red: #D7263D;
+    --accent-green: #2ecc71;
+    --accent-cyan: #00E5FF;
+    --gold: #E6A800;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --shadow-soft: 0 6px 25px rgba(0,0,0,0.12);
+    --shadow-strong: 0 26px 80px rgba(5,6,15,0.45);
+    --t-fast: 220ms;
+    --t-base: 320ms;
+  }
+
+  /* ---------------- reset básico ---------------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+  html, body { height: 100%; }
+
+  /* ---------------- fondo general ---------------- */
+  body {
+    background: linear-gradient(180deg, var(--bg-dark-1), var(--bg-dark-2));
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+    padding-bottom: 30px;
+  }
+
+  /* ---------------- contenedor principal ---------------- */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .u-center { text-align: center; }
+
+  /* ---------------- HEADER ---------------- */
+  header {
+    background: linear-gradient(135deg, #000 0%, var(--accent-purple) 60%);
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow-strong);
+    position: relative;
+    border-bottom: 3px solid rgba(255,255,255,0.03);
+  }
+
+  header::after {
+    content: "";
+    position: absolute;
+    right: -10%;
+    top: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 30%), radial-gradient(circle at 70% 70%, rgba(0,229,255,0.03), transparent 30%);
+    transform: rotate(12deg);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .neon {
+    color: var(--white) !important;
+    text-shadow:
+      0 0 6px rgba(106,63,226,0.95),
+      0 0 18px rgba(106,63,226,0.55),
+      0 0 32px rgba(0,229,255,0.18),
+      0 8px 40px rgba(0,0,0,0.6);
+    transition: text-shadow var(--t-base), transform var(--t-base);
+  }
+
+  @keyframes neonPulse {
+    0% { text-shadow: 0 0 6px rgba(106,63,226,0.9), 0 0 18px rgba(106,63,226,0.5), 0 0 28px rgba(0,229,255,0.12); transform: translateY(0); }
+    50% { text-shadow: 0 0 10px rgba(106,63,226,1), 0 0 26px rgba(106,63,226,0.7), 0 0 42px rgba(0,229,255,0.2); transform: translateY(-2px); }
+    100% { text-shadow: 0 0 6px rgba(106,63,226,0.9), 0 0 18px rgba(106,63,226,0.5), 0 0 28px rgba(0,229,255,0.12); transform: translateY(0); }
+  }
+
+  .neon.animated { animation: neonPulse 2.6s infinite ease-in-out; }
+
+  header h1 {
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+  }
+
+  header p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 900;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+
+  /* ---------------- NAV ---------------- */
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    gap: 30px;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: transform var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+  }
+
+  nav a:hover { color: var(--accent-red); transform: translateY(-4px); box-shadow: 0 8px 26px rgba(215,38,61,0.06); }
+
+  /* ---------------- SECCION PRINCIPAL ---------------- */
+  main { padding: 60px 20px; }
+
+  .panel {
+    text-align: left;
+    max-width: 900px;
+    margin: 50px auto;
+    animation: fadeUp 900ms ease-in-out;
+    padding: 30px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .pregunta { margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+  .pregunta h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .pregunta p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* ---------------- CONTACTO ---------------- */
+  .contacto { margin-top: 30px; padding-top: 18px; border-top: 2px dotted rgba(255,255,255,0.03); }
+  .contacto h3 { font-size: 22px; color: var(--white); margin-bottom: 12px; }
+
+  .form-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .form-row .campo { flex: 1; min-width: 200px; }
+
+  /* ---------------- INPUTS GENERALES ---------------- */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: #1a1a1a;
+    border: 2px solid #8b0000;
+    color: #f8f8f8;
+    border-radius: 10px;
+    margin: 12px 0;
+    font-size: 16px;
+    transition: 0.3s ease;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  input:hover, textarea:hover { border-color: #b30000; }
+
+  input:focus, textarea:focus {
+    border-color: #ffdf7e;
+    box-shadow: 0 0 12px rgba(255,223,126,0.5);
+    background: #262626;
+  }
+
+  input::placeholder,
+  textarea::placeholder { color: #b8b8b8; font-style: italic; }
+
+  .botones {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  button.enviar {
+    background: linear-gradient(90deg,var(--accent-purple),#6a7bff);
+    color: var(--white);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(102,87,231,0.18);
+    transition: transform .12s ease;
+  }
+
+  button.enviar:hover { transform: translateY(-3px); }
+
+  button.limpiar {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 9px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ddd;
+  }
+
+  #cfStatus {
+    margin-left: 8px;
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  footer.footer {
+    margin-top: 60px;
+    background: #000;
+    padding: 25px 0;
+    color: #fff;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+  }
+
+  footer.footer p { margin: 0; color: #bbb; }
+
+  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width:600px){
+    header h1 { font-size: 32px; }
+    .panel { margin: 20px; padding: 20px; }
+    nav ul { gap: 12px; flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
@@ -16,9 +262,6 @@ header .logo-small { width:36px; height:36px; object-fit:cover; margin-left:12px
   <div class="container u-center">
     <h1 class="neon animated">Preguntas Frecuentes</h1>
     <p>Calidad, estilo y atención rápida</p>
-
-    <!-- muestra la imagen que subiste -->
-    <img src="/mnt/data/e3f35b63-931e-4438-81b1-2873d9eb5e3b.png" alt="logo" class="logo-small">
 
     <nav aria-label="Menú principal">
       <ul>
@@ -33,21 +276,15 @@ header .logo-small { width:36px; height:36px; object-fit:cover; margin-left:12px
 <main>
   <div class="container">
     <section class="panel">
-      <!-- preguntas... -->
+      <!-- Aquí puedes añadir tus preguntas frecuentes como bloques .pregunta -->
 
       <div class="contacto" id="contacto">
         <h3 class="neon">Envíanos un comentario</h3>
 
-        <!-- Agregué atributos data-emailjs-* opcionales:
-             Si vas a usar EmailJS, pon aquí tus IDs.
-             Si no, déjalos vacíos y se usará FormSubmit AJAX -->
         <form id="contactForm"
               action="https://formsubmit.co/al45093@un.edu.mx"
               method="POST"
-              novalidate
-              data-emailjs-service=""       <!-- ej: service_xxx -->
-              data-emailjs-template=""      <!-- ej: template_xxx -->
-              data-emailjs-user="">         <!-- ej: user_xxx / public key -->
+              novalidate>
           <input type="hidden" name="_captcha" value="false">
 
           <div class="form-row">
@@ -90,16 +327,11 @@ header .logo-small { width:36px; height:36px; object-fit:cover; margin-left:12px
 
 <footer class="footer"><div class="container"><p>© 2025 • Clover Multicaps</p></div></footer>
 
-<!-- EMAILJS SDK (opcional). Si usas EmailJS déjalo; si no, no afecta. -->
-<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-
 <script>
-/*
-  Lógica combinada:
-  - Si completas data-emailjs-* en el formulario, el script intentará enviar por EmailJS.
-  - Si no están, usará FormSubmit AJAX (https://formsubmit.co/tu_email/ajax).
-  - En ambos casos, si el envío fue OK, abre WhatsApp (wa.me) con el mensaje prellenado.
-  - El botón 'Enviar también por WhatsApp' abre wa.me directamente (igual que tu ejemplo).
+/* Lógica simplificada:
+   - Validación básica en cliente
+   - Envío por FormSubmit (AJAX)
+   - Abre WhatsApp con el mensaje prellenado si el usuario acepta/usa el botón
 */
 
 /* --- helpers --- */
@@ -108,25 +340,13 @@ function validateEmail(email){
 }
 
 /* --- configuración WhatsApp --- */
-// Cambia aquí si quieres otro número (formato: código pais + número, sin +)
-const WHATSAPP_PHONE = '5218187068768'; // tu número México (+52) 8187068768 -> 5218187068768
+const WHATSAPP_PHONE = '5218187068768'; // formato: código país + número (ej. 52 para México)
 
 /* --- DOM --- */
 const form = document.getElementById('contactForm');
 const status = document.getElementById('cfStatus');
 const waBtn = document.getElementById('whatsapp-send-button');
 
-/* lee atributos data-emailjs del form (vacíos = no usar EmailJS) */
-const EMAILJS_SERVICE = form.dataset.emailjsService || '';
-const EMAILJS_TEMPLATE = form.dataset.emailjsTemplate || '';
-const EMAILJS_USER = form.dataset.emailjsUser || '';
-
-/* inicializa EmailJS si se configuró user */
-if (EMAILJS_USER && window.emailjs) {
-  try { emailjs.init(EMAILJS_USER); } catch(e){ console.warn('EmailJS init falló', e); }
-}
-
-/* función que construye mensaje para WhatsApp */
 function buildWaText(nombre, correo, telefono, mensaje){
   return `Nuevo mensaje desde Preguntas Frecuentes - Clover Multicaps
 Nombre: ${nombre}
@@ -135,7 +355,7 @@ Teléfono: ${telefono}
 Mensaje: ${mensaje}`;
 }
 
-/* botón: enviar también por WhatsApp (similar a tu script original) */
+/* Botón: abrir WhatsApp con contenido del formulario */
 waBtn.addEventListener('click', function(){
   const nombre = document.getElementById('cfNombre').value.trim();
   const correo = document.getElementById('cfEmail').value.trim();
@@ -150,7 +370,7 @@ waBtn.addEventListener('click', function(){
   window.open(url, '_blank');
 });
 
-/* handler del form: intenta EmailJS -> fallback AJAX FormSubmit */
+/* Handler del form: FormSubmit AJAX */
 form.addEventListener('submit', async function(e){
   e.preventDefault();
 
@@ -159,7 +379,6 @@ form.addEventListener('submit', async function(e){
   const telefono = document.getElementById('cfTelefono').value.trim();
   const mensaje = document.getElementById('cfMensaje').value.trim();
 
-  // validaciones simples
   if(nombre.length < 2){ status.textContent='Nombre inválido.'; status.style.color='#d32f2f'; return; }
   if(!validateEmail(correo)){ status.textContent='Correo inválido.'; status.style.color='#d32f2f'; return; }
   if(mensaje.length < 5){ status.textContent='El mensaje es demasiado corto.'; status.style.color='#d32f2f'; return; }
@@ -167,32 +386,15 @@ form.addEventListener('submit', async function(e){
   status.textContent = 'Enviando...';
   status.style.color = '#fff';
 
-  // preparar la URL de WhatsApp antes (evitar bloqueo de popup)
   const waText = buildWaText(nombre, correo, telefono, mensaje);
   const waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(waText);
   let waWindow = null;
   try { waWindow = window.open('', '_blank'); } catch(err) { waWindow = null; }
 
-  // Si EmailJS está configurado, intentar ese envío primero
-  if (EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_USER && window.emailjs) {
-    try {
-      await emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, form);
-      status.textContent = '¡Enviado por EmailJS! ✔';
-      status.style.color = '#2ecc71';
-      form.reset();
-      if (waWindow) { try { waWindow.location = waUrl; } catch(e){ window.open(waUrl, '_blank'); } }
-      else { window.open(waUrl, '_blank'); }
-      return;
-    } catch (err) {
-      console.warn('EmailJS fallo, intentar FormSubmit AJAX', err);
-      // continuar al fallback
-    }
-  }
-
-  // Fallback: FormSubmit AJAX (asegúrate de haber verificado tu correo con FormSubmit)
   try {
     const ajaxUrl = form.action.replace(/\/?$/, '') + '/ajax';
     const formData = new FormData(form);
+
     const resp = await fetch(ajaxUrl, {
       method: 'POST',
       body: formData,
@@ -208,9 +410,8 @@ form.addEventListener('submit', async function(e){
     } else {
       const data = await resp.json().catch(()=>null);
       console.error('FormSubmit error', resp.status, data);
-      status.textContent = 'Error al enviar (FormSubmit). Revisa tu correo o configura EmailJS.';
+      status.textContent = 'Error al enviar (FormSubmit). Revisa tu correo o prueba WhatsApp.';
       status.style.color = '#D7263D';
-      // opcional: abrir WhatsApp aunque falló el envío de email
       if (confirm('No se pudo enviar el correo. ¿Deseas abrir WhatsApp para enviar el mensaje manualmente?')) {
         window.open(waUrl, '_blank');
       }
@@ -225,7 +426,7 @@ form.addEventListener('submit', async function(e){
   }
 });
 
-/* --- Opcional: mobile menu logic (defensivo si no existe el botón) --- */
+/* Mobile menu logic defensivo (si existe) */
 const mobileBtn = document.getElementById('mobile-menu-button');
 if (mobileBtn) {
   mobileBtn.addEventListener('click', function(){
