@@ -105,29 +105,80 @@ text-shadow: 0 2px 8px rgba(0,0,0,0.25);
 /* ---------------- NAV ---------------- */
 /* navegación simple con micro-interacciones */
 nav ul {
-list-style: none;
-display: flex;
-justify-content: center;
-margin-top: 18px;
-gap: 30px;
-padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  gap: 30px;
+  padding: 0;
 }
 
 nav a {
-color: var(--white);
-text-decoration: none;
-font-weight: bold;
-font-size: 18px;
-padding: 8px 12px;
-border-radius: 8px;
-transition: transform var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  position: relative;
+  transition: transform var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+/* línea morada animada */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 4px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform var(--t-fast) cubic-bezier(.2,.9,.2,1), opacity var(--t-fast);
+  box-shadow: 0 8px 24px rgba(106, 63, 226, 0.18);
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 nav a:hover {
-color: var(--accent-red);
-transform: translateY(-4px);
-box-shadow: 0 8px 26px rgba(215,38,61,0.06);
+  color: var(--white);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(106, 63, 226, 0.06);
 }
+
+nav a:visited {
+  color: var(--white);
+}
+
+nav a.active {
+  font-weight: 900;
+}
+
+/* icono para enlace activo */
+nav a.active::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('/mnt/data/e3f35b63-931e-4438-81b1-2873d9eb5e3b.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  opacity: 0.95;
+}
+
+nav a.has-icon { padding-left: 36px; }
 
 /* ---------------- SECCIÓN PRINCIPAL ---------------- */
 main { padding: 60px 20px; }
